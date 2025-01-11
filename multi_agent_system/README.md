@@ -11,18 +11,18 @@ This system is designed to automate minor impact tasks in development pipelines 
 - **PlanAndSolveAgent**: Plans and solves tasks based on the developer's output.
 - Additional agents can be added as needed.
 
-## Communication
+## Pipeline
 
-Agents communicate by sending and receiving messages. This allows them to coordinate tasks and pass information along the pipeline.
+The pipeline is defined as a series of tasks that each agent performs in sequence. The tasks are passed through the agents according to the specified graph connections.
 
 ## Development Choices
 
-- **Modular Design**: Each agent is implemented as a separate class, allowing for easy extension and modification.
-- **Simple Messaging Protocol**: A basic messaging system is used for communication between agents, which can be extended for more complex interactions.
-- **Integration with Existing Tools**: The system can be integrated with existing development tools and APIs to perform tasks like code generation and testing.
+- **Langchain Integration**: Each agent is implemented using Langchain, allowing for flexible and scalable task management.
+- **Graph-Based Pipeline**: The pipeline is defined using a graph structure, enabling complex task flows and dependencies.
+- **Extensible Design**: Additional agents and tasks can be easily added to the system to extend its functionality.
 
 ## Future Work
 
-- Implement additional agents for tasks like testing and documentation.
-- Enhance the messaging protocol for more complex interactions.
-- Integrate with external APIs for automated code generation and testing.
+- Enhance the pipeline with more complex task flows and dependencies.
+- Integrate with external APIs for automated code generation, testing, and documentation.
+- Implement advanced error handling and recovery mechanisms.

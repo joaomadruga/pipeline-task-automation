@@ -1,26 +1,36 @@
-class Agent:
-    def __init__(self, name):
-        self.name = name
-
-    def send_message(self, message, recipient):
-        print(f"{self.name} sends message to {recipient.name}: {message}")
-
-    def receive_message(self, message, sender):
-        print(f"{self.name} received message from {sender.name}: {message}")
+from langchain.agents import Agent
 
 class HumanTaskAgent(Agent):
-    def perform_task(self):
+    def perform_task(self, task):
         # Logic for human task
-        pass
+        return "Describe Success Criteria"
 
 class DeveloperAgent(Agent):
-    def perform_task(self):
+    def perform_task(self, task):
         # Logic for developer task
-        pass
+        return "Code Developed"
 
 class PlanAndSolveAgent(Agent):
-    def perform_task(self):
+    def perform_task(self, task):
         # Logic for planning and solving
-        pass
+        return "Plan and Solve"
 
-# Add other agents as needed
+class RagWithDocsAgent(Agent):
+    def perform_task(self, task):
+        # Logic for rag with docs
+        return "Rag with Docs"
+
+class TesterUnitAgent(Agent):
+    def perform_task(self, task):
+        # Logic for unit testing
+        return "Tested"
+
+class ReviewerAgent(Agent):
+    def perform_task(self, task):
+        # Logic for reviewing
+        return "Reviewed"
+
+class SuccessCriteriaAgent(Agent):
+    def perform_task(self, task):
+        # Logic for success criteria
+        return "Success Criteria Met"
