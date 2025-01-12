@@ -30,6 +30,11 @@ class ReviewerAgent(Agent):
         # Logic for reviewing
         return "Reviewed"
 
+class DBAnalystAgent(Agent):
+    def perform_task(self, task):
+        # Logic for database analysis
+        return "Database Analyzed"
+
 class SuccessCriteriaAgent(Agent):
     def perform_task(self, task):
         # Logic for success criteria
