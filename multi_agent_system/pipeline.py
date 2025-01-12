@@ -18,7 +18,6 @@ def setup_pipeline():
     # Define the pipeline
     task = "Initial Task"
     task = human_task.perform_task(task)
-    task = human_task.perform_task(task)
     task = success_criteria.perform_task(task)
     task = developer.perform_task(task)
     task = plan_and_solve.perform_task(task)
