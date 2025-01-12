@@ -1,6 +1,7 @@
 from agents import (
     HumanTaskAgent, DeveloperAgent, PlanAndSolveAgent,
-    RagWithDocsAgent, TesterUnitAgent, ReviewerAgent, SuccessCriteriaAgent
+    RagWithDocsAgent, TesterUnitAgent, ReviewerAgent, SuccessCriteriaAgent,
+    DBAnalystAgent
 )
 
 def setup_pipeline():
