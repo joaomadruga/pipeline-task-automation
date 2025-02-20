@@ -1,0 +1,49 @@
+# product_owner_task:
+#   description: >
+#     Understand the user's request and format it in a structured way.
+#     Extract key requirements and constraints.
+#   expected_output: >
+#     A structured document outlining the user's request, key requirements, and constraints.
+#   agent: product_owner_agent
+
+success_criteria_task:
+  description: >
+    Define clear and measurable success criteria for the given {topic}.
+  expected_output: >
+    A document with detailed and measurable success criteria for the {topic}.
+  agent: describe_success_criteria_agent
+
+development_task:
+  description: >
+    Implement the solution based on the provided requirements and best practices.
+  expected_output: >
+    A fully functional code implementation that meets the requirements.
+  agent: developer_agent
+
+# documentation_task:
+#   description: >
+#     Review the developer's work and generate clear and comprehensive documentation.
+#   expected_output: >
+#     A comprehensive documentation file detailing the implementation.
+#   agent: rag_with_docs_agent
+
+unit_testing_task:
+  description: >
+    Write and execute unit tests to verify code quality and functionality.
+  expected_output: >
+    A set of unit tests with results verifying the code quality and functionality.
+  agent: tester_unit_agent
+
+# database_analysis_task:
+#   description: >
+#     Analyze and optimize database requirements and performance.
+#   expected_output: >
+#     A report detailing the database analysis and optimization recommendations.
+#   agent: db_analyst_agent
+
+solution_review_task:
+  description: >
+    Review the final solution to ensure it meets all success criteria.
+  expected_output: >
+    A review report with feedback and final approval status.
+  agent: reviewer_agent
