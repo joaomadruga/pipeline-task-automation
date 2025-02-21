@@ -1,0 +1,27 @@
+agents:
+  email_ingestion_agent:
+    role: >
+      Fetches new emails from the inbox (or a message queue), extracts relevant text, and formats data for further processing.
+    key_abilities:
+      - Connects to an email API or message queue.
+      - Filters spam or irrelevant messages using a lightweight classification algorithm.
+  sentiment_analysis_agent:
+    role: >
+      Analyzes each email’s tone and sentiment.
+    key_abilities:
+      - Runs a sentiment analysis model (e.g., positive, neutral, negative).
+      - Detects urgency or anger (which might require immediate escalation).
+  faq_knowledge_base_agent:
+    role: >
+      Attempts to find relevant answers from a knowledge base.
+    key_abilities:
+      - Uses a semantic search or retrieval model to query the knowledge base.
+      - Generates a draft response if a match is found.
+  escalation_agent:
+    role: >
+      Decides whether to pass the response to a human operator.
+    key_abilities:
+      - Uses a rule-based approach or a machine learning model to decide escalation threshold.
+      - If escalated, packages conversation context for a human agent.
+process_flow: >
+  The Email Ingestion Agent pulls in the message. The Sentiment Analysis Agent checks sentiment and urgency. If not urgent, the message is sent to the FAQ/Knowledge Base Agent to attempt an automated response. The Escalation Agent then checks if the generated response is sufficiently confident or if it needs human intervention. Final response is either sent automatically or assigned to a human operator queue.
