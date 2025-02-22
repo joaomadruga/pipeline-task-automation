@@ -10,7 +10,7 @@ class OrchestratorAgent:
             You are an Orchestrator Agent responsible for planning and coordinating other specialized agents to solve complex tasks.
 
             Here are the available agents:
-            {self.agents}
+            {self.agents.values()}
 
             Your responsibilities:
             1. Decompose the task into clear, actionable steps.
@@ -40,7 +40,6 @@ class OrchestratorAgent:
         structured_llm = llm.with_structured_output(OrchestrationPlan)
 
         formatted_prompt = self.orchestrator.get_prompt(user_task)
-
         orchestration_plan = structured_llm.invoke(formatted_prompt)
-
+        print("hhe")
         return orchestration_plan

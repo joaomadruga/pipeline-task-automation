@@ -28,6 +28,5 @@
         "If escalated, packages conversation context for a human agent."
       ]
     }
-  },
-  "process_flow": "The Email Ingestion Agent pulls in the message. The Sentiment Analysis Agent checks sentiment and urgency. If not urgent, the message is sent to the FAQ/Knowledge Base Agent to attempt an automated response. The Escalation Agent then checks if the generated response is sufficiently confident or if it needs human intervention. Final response is either sent automatically or assigned to a human operator queue."
+  }
 }

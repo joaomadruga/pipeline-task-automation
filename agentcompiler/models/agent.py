@@ -6,10 +6,12 @@ class Agent(BaseModel):
     agent_name: str
     prompt: str
     key_abilities: list[str]
+    is_central_authority: bool = Field(default=False, description="Flag indicating if this agent is a central authority.")
 
     def get_prompt(self, user_task: str) -> str:
         prompt = (f"Your name is {self.agent_name}.\n"
-                  f"Your key abilities are: {', '.join(self.key_abilities)}.\n\n"
+                  f"Your key abilities are: {', '.join(self.key_abilities)}.\n"
+                  f"Central Authority: {self.is_central_authority}\n\n"
                   f"{self.prompt}\n\n"
                   "Task: {user_task}")
         print(prompt)
