@@ -5,28 +5,67 @@
       "key_abilities": [
         "Connects to an email API or message queue.",
         "Filters spam or irrelevant messages using a lightweight classification algorithm."
-      ]
+      ],
+      "mocked_tool_result": {
+        "emails": [
+          {
+            "id": "123",
+            "subject": "Need help with my order",
+            "body": "Hi, I placed an order last week, but it hasn't arrived yet. Can you help me track it?"
+          },
+          {
+            "id": "124",
+            "subject": "Question about my subscription",
+            "body": "Hello, I have a question about my subscription renewal. Can you provide more details?"
+          }
+        ]
+      }
     },
     "sentiment_analysis_agent": {
       "role": "Analyzes each email’s tone and sentiment.",
       "key_abilities": [
         "Runs a sentiment analysis model (e.g., positive, neutral, negative).",
         "Detects urgency or anger (which might require immediate escalation)."
-      ]
+      ],
+      "mocked_tool_result": {
+        "sentiment": [
+          {
+            "email_id": "123",
+            "sentiment": "neutral"
+          },
+          {
+            "email_id": "124",
+            "sentiment": "positive"
+          }
+        ]
+      }
     },
     "faq_knowledge_base_agent": {
       "role": "Attempts to find relevant answers from a knowledge base.",
       "key_abilities": [
         "Uses a semantic search or retrieval model to query the knowledge base.",
         "Generates a draft response if a match is found."
-      ]
+      ],
+      "mocked_tool_result": {
+        "responses": [
+          {
+            "email_id": "123",
+            "response": "Please allow 3-5 business days for your order to arrive."
+          },
+          {
+            "email_id": "124",
+            "response": "Your subscription will renew on the 15th of next month."
+          }
+        ]
+      }
     },
     "escalation_agent": {
       "role": "Decides whether to pass the response to a human operator.",
       "key_abilities": [
         "Uses a rule-based approach or a machine learning model to decide escalation threshold.",
         "If escalated, packages conversation context for a human agent."
-      ]
+      ],
+      "mocked_tool_result": {}
     }
   }
 }

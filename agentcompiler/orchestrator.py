@@ -1,45 +1,68 @@
 from models.agent import Agent
-from models.orchestrator import OrchestrationPlan
+from models.orchestrator import OrchestrationPlan, OrchestratorFinalAnswer
 from utils import load_agents
 from langchain_openai import ChatOpenAI
+from models.agent_execution_step import AgentExecuted
+from langchain.prompts import ChatPromptTemplate
 
 class OrchestratorAgent:
     def __init__(self):
         self.agents = load_agents()
         self.orchestrator_prompt = f"""
-            You are an Orchestrator Agent responsible for planning and coordinating other specialized agents to solve complex tasks.
+        You are an Orchestrator Agent responsible for planning and coordinating specialized agents to solve complex tasks.
 
-            Here are the available agents:
-            {self.agents.values()}
+        **Objective**:
+        - Decompose the user's task into actionable steps.
+        - Assign the most suitable agents to each step.
+        - Ensure effective collaboration among agents to achieve the desired outcome.
 
-            Your responsibilities:
-            1. Decompose the task into clear, actionable steps.
-            2. Identify the most suitable agents to execute each step.
-            3. Define the sequence of agent execution to ensure accurate and complete results.
+        **Responsibilities**:
+        1. **Task Decomposition**: Break down the task into clear, manageable steps.
+        2. **Agent Assignment**: Select the most appropriate agents for each step.
+        3. **Execution Planning**: Define the sequence and communication structure for agent interactions.
 
-            Communication Structures:
-            1. Layered: Agents are organized hierarchically, where each layer depends on the previous one.
-            2. Decentralized: All agents communicate directly with each other without a central authority.
-            3. Centralized: One main agent coordinates and communicates with all other agents.
-            4. Shared Message Pool: Agents share information through a common message pool where each agent reads and writes as needed.
+        **Communication Structures**:
+        - **Layered**: Hierarchical organization where each layer depends on the previous one.
+        - **Decentralized**: Agents communicate directly without a central authority.
+        - **Centralized**: A main agent coordinates and communicates with all other agents.
+        - **Shared Message Pool**: Agents share information through a common message pool for reading and writing as needed.
 
-            Example:
-            Task: "If a car travels 60 km per hour, how long will it take to travel 180 km?"
+        **Example**:
+        *Task*: "If a car travels 60 km per hour, how long will it take to travel 180 km?"
 
-            Execution Plan:
-            - Step 1: Use a ParameterExtractor agent to identify speed and distance.
-            - Step 2: Invoke TimeComputationAgent to calculate time using time = distance / speed.
-            - Step 3: Call AnswerFormatterAgent to produce a clear, human-readable response.
+        *Execution Plan*:
+        1. **Parameter Extraction**: Use the ParameterExtractor agent to identify speed and distance.
+        2. **Computation**: Assign the TimeComputationAgent to calculate time using the formula: time = distance / speed.
+        3. **Formatting**: Engage the AnswerFormatterAgent to produce a clear, human-readable response.
 
-            Output your reasoning and the ordered list of required agents to fulfill the task.
-            """
+        *Note*: If an agent is unnecessary for a specific task, exclude it from the plan.
+
+        Ensure your plan is concise, coherent, and directly addresses the user's query.
+        """
+        self.orchestrator_final_answer_prompt = """
+        Your task is to generate the final answer by synthesizing the results from multiple agents.
+        Provide a clear and concise response based on the following:
+
+        - **User's Initial Question:** {user_question}
+        - **Task Results:** {task_results}
+
+        **Important Note**: Never reveal internal tool calls results or sensitive user information in the final message.
+
+        Ensure that your answer is well-structured and directly addresses the user's query. Avoid unnecessary explanations or system details.
+        """
 
         self.orchestrator = Agent(agent_name="Orchestrator", prompt=self.orchestrator_prompt, key_abilities=["Planning", "Coordination"])
 
     def generate_plan(self, user_task: str, llm: ChatOpenAI = ChatOpenAI(model_name="gpt-4o-mini", temperature=0)) -> OrchestrationPlan:
         structured_llm = llm.with_structured_output(OrchestrationPlan)
 
-        formatted_prompt = self.orchestrator.get_prompt(user_task)
+        formatted_prompt = self.orchestrator.get_orchestrator_prompt(user_task, self.agents)
         orchestration_plan = structured_llm.invoke(formatted_prompt)
-        print("hhe")
         return orchestration_plan
+
+    def generate_final_answer(self, orchestration_plan_result: list[AgentExecuted], user_question: str,  llm: ChatOpenAI = ChatOpenAI(model_name="gpt-4o-mini", temperature=0)) -> OrchestratorFinalAnswer:
+        structured_llm = llm.with_structured_output(OrchestratorFinalAnswer)
+
+        formatted_prompt = ChatPromptTemplate.from_template(self.orchestrator_final_answer_prompt).format(task_results=orchestration_plan_result, user_question=user_question)
+        final_answer = structured_llm.invoke(formatted_prompt)
+        return final_answer

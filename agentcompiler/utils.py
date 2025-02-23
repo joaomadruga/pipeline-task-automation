@@ -11,8 +11,7 @@ def load_agents() -> dict[str, Agent]:
     agents_dict = {}
 
     for agent_name, agent_info in agents.items():
-        agent = Agent(agent_name=agent_name, prompt=agent_info["role"], key_abilities=agent_info["key_abilities"])
+        agent = Agent(agent_name=agent_name, prompt=agent_info["role"], key_abilities=agent_info["key_abilities"], tool_result=agent_info["mocked_tool_result"])
         agents_dict[agent_name] = agent
 
-    print(agents_dict)
     return agents_dict

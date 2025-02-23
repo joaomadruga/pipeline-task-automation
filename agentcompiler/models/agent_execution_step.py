@@ -18,3 +18,6 @@ class AgentExecutionStep(BaseModel):
         if value not in AVAILABLE_MODELS.keys():
             raise ValueError(f"Invalid model '{value}'. Choose from {AVAILABLE_MODELS.keys()}.")
         return AVAILABLE_MODELS[value]
+
+class AgentExecuted(AgentExecutionStep):
+    result: str = Field(description="The result of the agent's execution")
