@@ -1,0 +1,110 @@
+{
+  "agents": {
+    "paper_crawler_agent": {
+      "role": "Periodically crawls academic websites and APIs (e.g., ArXiv, Google Scholar) for new papers.",
+      "key_abilities": [
+        "Uses web scraping or API calls to retrieve research papers.",
+        "Filters papers by keywords or topic categories."
+      ],
+      "mocked_tool_result": {
+        "papers": [
+          {
+            "id": "A123",
+            "title": "Advancements in Neural Networks",
+            "source": "ArXiv",
+            "url": "https://arxiv.org/abs/1234.56789"
+          },
+          {
+            "id": "B456",
+            "title": "Quantum Computing: A New Era",
+            "source": "Google Scholar",
+            "url": "https://scholar.google.com/scholar?q=Quantum+Computing"
+          }
+        ]
+      }
+    },
+    "text_extraction_agent": {
+      "role": "Cleans and extracts the text from PDF or HTML sources.",
+      "key_abilities": [
+        "Uses Optical Character Recognition (OCR) if needed.",
+        "Parses and cleans text to standardize format."
+      ],
+      "mocked_tool_result": {
+        "extracted_text": [
+          {
+            "paper_id": "A123",
+            "text": "Neural networks have significantly improved over the last decade..."
+          },
+          {
+            "paper_id": "B456",
+            "text": "Quantum computing leverages principles of superposition and entanglement..."
+          }
+        ]
+      }
+    },
+    "summarization_agent": {
+      "role": "Generates concise summaries of the extracted text.",
+      "key_abilities": [
+        "Leverages a large language model for summarization.",
+        "Identifies relevant sections (abstract, introduction, conclusions, etc.)."
+      ],
+      "mocked_tool_result": {
+        "summaries": [
+          {
+            "paper_id": "A123",
+            "summary": "This paper discusses recent advancements in neural networks, highlighting key breakthroughs."
+          },
+          {
+            "paper_id": "B456",
+            "summary": "An overview of quantum computing, explaining fundamental principles and future implications."
+          }
+        ]
+      }
+    },
+    "topic_classifier_agent": {
+      "role": "Classifies the paper by subject area or domain.",
+      "key_abilities": [
+        "Uses a topic modeling or classification pipeline.",
+        "Labels the paper with relevant topics for further categorization."
+      ],
+      "mocked_tool_result": {
+        "classification": [
+          {
+            "paper_id": "A123",
+            "topics": ["Artificial Intelligence", "Deep Learning"]
+          },
+          {
+            "paper_id": "B456",
+            "topics": ["Quantum Computing", "Theoretical Physics"]
+          }
+        ]
+      }
+    },
+    "report_generator_agent": {
+      "role": "Compiles the summaries into a structured report or newsletter.",
+      "key_abilities": [
+        "Applies consistent formatting.",
+        "Creates an index or table of contents for quick navigation."
+      ],
+      "mocked_tool_result": {
+        "report": {
+          "title": "Weekly Research Highlights",
+          "entries": [
+            {
+              "paper_id": "A123",
+              "title": "Advancements in Neural Networks",
+              "summary": "This paper discusses recent advancements in neural networks, highlighting key breakthroughs.",
+              "topics": ["Artificial Intelligence", "Deep Learning"]
+            },
+            {
+              "paper_id": "B456",
+              "title": "Quantum Computing: A New Era",
+              "summary": "An overview of quantum computing, explaining fundamental principles and future implications.",
+              "topics": ["Quantum Computing", "Theoretical Physics"]
+            }
+          ]
+        }
+      }
+    }
+  }
+}

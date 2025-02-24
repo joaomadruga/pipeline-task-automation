@@ -4,10 +4,11 @@ from utils import load_agents
 from langchain_openai import ChatOpenAI
 from models.agent_execution_step import AgentExecuted
 from langchain.prompts import ChatPromptTemplate
+import os
 
 class OrchestratorAgent:
     def __init__(self):
-        self.agents = load_agents()
+        self.agents = load_agents(os.getenv("AGENTS_FILE_NAME"))
         self.orchestrator_prompt = f"""
         You are an Orchestrator Agent responsible for planning and coordinating specialized agents to solve complex tasks.
 
