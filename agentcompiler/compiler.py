@@ -152,6 +152,6 @@ class AgentCompiler:
         """Execute agents according to the specified communication structure"""
         strategy = self._strategy_map.get(self.orchestration_plan.communication_structure)
         if not strategy:
-            raise ValueError(f"Unsupported communication structure: {self.orchestration_plan.communication_structure}")
+            return self.orchestration_plan
 
         return strategy.execute(self.orchestration_plan.agent_execution_plan)

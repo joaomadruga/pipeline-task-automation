@@ -1,0 +1,940 @@
+{
+  "test_cases": [
+    {
+      "topic": "Email Ingestion Agent",
+      "question": "How does the `email_ingestion_agent` retrieve and process customer emails, and how does it filter spam?",
+      "expected_answer": "The `email_ingestion_agent` retrieves and processes customer emails by connecting to an email API or message queue to fetch new messages from the inbox. It extracts relevant text from these emails and formats the data for further processing. To filter spam, the agent employs a lightweight classification algorithm that identifies and discards irrelevant messages, ensuring that only pertinent emails are processed. \n\nAfter processing, the agent classifies the emails based on their content into categories such as urgent and non-urgent. For example, an email regarding an order issue is classified as urgent, while a subscription inquiry is deemed non-urgent.",
+      "expected_agent_calls": "",
+      "latency": "4.476550082996255",
+      "activation_count": "2",
+      "activations_made": [
+        {
+          "agent_name": "email_ingestion_agent",
+          "tool_result": {
+            "emails": [
+              {
+                "id": "123",
+                "subject": "Need help with my order",
+                "body": "Hi, I placed an order last week, but it hasn't arrived yet. Can you help me track it?"
+              },
+              {
+                "id": "124",
+                "subject": "Question about my subscription",
+                "body": "Hello, I have a question about my subscription renewal. Can you provide more details?"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "email_ingestion_agent",
+          "tool_result": {
+            "emails": [
+              {
+                "id": "123",
+                "subject": "Need help with my order",
+                "body": "Hi, I placed an order last week, but it hasn't arrived yet. Can you help me track it?"
+              },
+              {
+                "id": "124",
+                "subject": "Question about my subscription",
+                "body": "Hello, I have a question about my subscription renewal. Can you provide more details?"
+              }
+            ]
+          }
+        }
+      ],
+      "token_count": "",
+      "cost_estimate": "",
+      "expected_activations": [
+        {
+          "agent_name": "email_ingestion_agent",
+          "tool_result": {
+            "emails": [
+              {
+                "id": "123",
+                "subject": "Need help with my order",
+                "body": "Hi, I placed an order last week, but it hasn't arrived yet. Can you help me track it?"
+              },
+              {
+                "id": "124",
+                "subject": "Question about my subscription",
+                "body": "Hello, I have a question about my subscription renewal. Can you provide more details?"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "email_ingestion_agent",
+          "tool_result": {
+            "emails": [
+              {
+                "id": "123",
+                "subject": "Need help with my order",
+                "body": "Hi, I placed an order last week, but it hasn't arrived yet. Can you help me track it?"
+              },
+              {
+                "id": "124",
+                "subject": "Question about my subscription",
+                "body": "Hello, I have a question about my subscription renewal. Can you provide more details?"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "topic": "Sentiment Analysis Agent",
+      "question": "How does the `sentiment_analysis_agent` determine the sentiment and urgency of incoming emails?",
+      "expected_answer": "The `sentiment_analysis_agent` determines the sentiment and urgency of incoming emails by analyzing the tone of each email. It classifies the sentiment into categories such as positive, neutral, or negative using a sentiment analysis model. Additionally, it detects signs of urgency or anger in the messages, which may indicate the need for immediate escalation or attention.",
+      "expected_agent_calls": "",
+      "latency": "0.6226035419967957",
+      "activation_count": "1",
+      "activations_made": [
+        {
+          "agent_name": "sentiment_analysis_agent",
+          "tool_result": {
+            "sentiment": [
+              {
+                "email_id": "123",
+                "sentiment": "neutral"
+              },
+              {
+                "email_id": "124",
+                "sentiment": "positive"
+              }
+            ]
+          }
+        }
+      ],
+      "token_count": "",
+      "cost_estimate": "",
+      "expected_activations": [
+        {
+          "agent_name": "sentiment_analysis_agent",
+          "tool_result": {
+            "sentiment": [
+              {
+                "email_id": "123",
+                "sentiment": "neutral"
+              },
+              {
+                "email_id": "124",
+                "sentiment": "positive"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "topic": "FAQ Knowledge Base Agent",
+      "question": "What approach does the `faq_knowledge_base_agent` use to find relevant responses for common customer inquiries?",
+      "expected_answer": "The `faq_knowledge_base_agent` utilizes a semantic search or retrieval model to query a knowledge base for relevant answers to common customer inquiries. When a match is found, it generates a draft response based on the information retrieved.",
+      "expected_agent_calls": "",
+      "latency": "0.7005683750030585",
+      "activation_count": "1",
+      "activations_made": [
+        {
+          "agent_name": "faq_knowledge_base_agent",
+          "tool_result": {
+            "responses": [
+              {
+                "email_id": "123",
+                "response": "Please allow 3-5 business days for your order to arrive."
+              },
+              {
+                "email_id": "124",
+                "response": "Your subscription will renew on the 15th of next month."
+              }
+            ]
+          }
+        }
+      ],
+      "token_count": "",
+      "cost_estimate": "",
+      "expected_activations": [
+        {
+          "agent_name": "faq_knowledge_base_agent",
+          "tool_result": {
+            "responses": [
+              {
+                "email_id": "123",
+                "response": "Please allow 3-5 business days for your order to arrive."
+              },
+              {
+                "email_id": "124",
+                "response": "Your subscription will renew on the 15th of next month."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "topic": "Escalation Agent",
+      "question": "How does the `escalation_agent` determine when an issue should be escalated to a human representative?",
+      "expected_answer": "The `escalation_agent` determines whether to escalate an issue to a human representative by evaluating the urgency and sentiment of the communication. It employs either a rule-based approach or a machine learning model to assess if the situation meets specific escalation criteria. If an escalation is warranted, the agent packages the relevant conversation context to facilitate a smooth handover to a human agent.",
+      "expected_agent_calls": "",
+      "latency": "1.4612774580018595",
+      "activation_count": "1",
+      "activations_made": [
+        {
+          "agent_name": "escalation_agent",
+          "tool_result": {}
+        }
+      ],
+      "token_count": "",
+      "cost_estimate": "",
+      "expected_activations": [
+        {
+          "agent_name": "escalation_agent",
+          "tool_result": {}
+        }
+      ]
+    },
+    {
+      "topic": "Process Flow",
+      "question": "What is the sequence of operations in the customer support pipeline, and how do the agents interact with each other?",
+      "expected_answer": "The customer support pipeline consists of several sequential operations where different agents interact to process customer inquiries effectively. Here\u2019s a breakdown of the sequence:\n\n1. **Email Ingestion Agent**: This agent fetches new emails from the inbox, extracts relevant text, and formats the data for further processing. It filters out spam and irrelevant messages. \n   - **Example Emails Processed**:\n     - Email ID 123: \"Need help with my order\"\n     - Email ID 124: \"Question about my subscription\"\n\n2. **Sentiment Analysis Agent**: After the emails are ingested, this agent analyzes the tone and sentiment of each email to determine urgency and emotional context.\n   - **Sentiment Results**:\n     - Email ID 123: Neutral sentiment (no urgency)\n     - Email ID 124: Positive sentiment (engaged customer)\n\n3. **FAQ Knowledge Base Agent**: This agent queries a knowledge base to find relevant answers based on the content of the emails and generates draft responses.\n   - **Responses Generated**:\n     - For Email ID 123: \"Please allow 3-5 business days for your order to arrive.\"\n     - For Email ID 124: \"Your subscription will renew on the 15th of next month.\"\n\n4. **Escalation Agent**: Finally, this agent decides whether to escalate the response to a human operator based on the sentiment and context of the emails. In this case, no escalation was deemed necessary as the inquiries were straightforward and could be addressed with the generated responses.\n\nIn summary, the agents work collaboratively: the email ingestion agent collects inquiries, the sentiment analysis agent assesses their urgency, the FAQ agent provides answers, and the escalation agent determines if human intervention is needed. This structured approach ensures efficient handling of customer support requests.",
+      "expected_agent_calls": "",
+      "latency": "6.606675917006214",
+      "activation_count": "4",
+      "activations_made": [
+        {
+          "agent_name": "email_ingestion_agent",
+          "tool_result": {
+            "emails": [
+              {
+                "id": "123",
+                "subject": "Need help with my order",
+                "body": "Hi, I placed an order last week, but it hasn't arrived yet. Can you help me track it?"
+              },
+              {
+                "id": "124",
+                "subject": "Question about my subscription",
+                "body": "Hello, I have a question about my subscription renewal. Can you provide more details?"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "sentiment_analysis_agent",
+          "tool_result": {
+            "sentiment": [
+              {
+                "email_id": "123",
+                "sentiment": "neutral"
+              },
+              {
+                "email_id": "124",
+                "sentiment": "positive"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "faq_knowledge_base_agent",
+          "tool_result": {
+            "responses": [
+              {
+                "email_id": "123",
+                "response": "Please allow 3-5 business days for your order to arrive."
+              },
+              {
+                "email_id": "124",
+                "response": "Your subscription will renew on the 15th of next month."
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "escalation_agent",
+          "tool_result": {}
+        }
+      ],
+      "token_count": "",
+      "cost_estimate": "",
+      "expected_activations": [
+        {
+          "agent_name": "email_ingestion_agent",
+          "tool_result": {
+            "emails": [
+              {
+                "id": "123",
+                "subject": "Need help with my order",
+                "body": "Hi, I placed an order last week, but it hasn't arrived yet. Can you help me track it?"
+              },
+              {
+                "id": "124",
+                "subject": "Question about my subscription",
+                "body": "Hello, I have a question about my subscription renewal. Can you provide more details?"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "sentiment_analysis_agent",
+          "tool_result": {
+            "sentiment": [
+              {
+                "email_id": "123",
+                "sentiment": "neutral"
+              },
+              {
+                "email_id": "124",
+                "sentiment": "positive"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "faq_knowledge_base_agent",
+          "tool_result": {
+            "responses": [
+              {
+                "email_id": "123",
+                "response": "Please allow 3-5 business days for your order to arrive."
+              },
+              {
+                "email_id": "124",
+                "response": "Your subscription will renew on the 15th of next month."
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "escalation_agent",
+          "tool_result": {}
+        }
+      ]
+    },
+    {
+      "topic": "Mocked Tool Results",
+      "question": "Given an urgent customer complaint about a missing order, how would each agent process the request step by step?",
+      "expected_answer": "To process the urgent customer complaint about a missing order, the agents executed the following steps:\n\n1. **Email Ingestion Agent:** \n   - Fetched new emails from the inbox and identified a relevant complaint regarding a missing order. \n   - Extracted the email with the subject \"Need help with my order\" which stated that the order placed last week had not arrived yet.\n\n2. **Sentiment Analysis Agent:** \n   - Analyzed the tone of the extracted email. \n   - Determined that the sentiment was neutral, indicating that while the customer is seeking assistance, there is no immediate urgency or anger.\n\n3. **FAQ Knowledge Base Agent:** \n   - Searched the knowledge base for relevant information regarding order tracking. \n   - Found a response stating: \"Please allow 3-5 business days for your order to arrive.\"\n\n4. **Escalation Agent:** \n   - Evaluated the urgency of the complaint based on the sentiment analysis. \n   - Concluded that there were no indications of urgency or complex issues, thus deciding not to escalate the matter to a human operator.\n\n**Final Response to Customer:** \n\"Thank you for reaching out. Please allow 3-5 business days for your order to arrive. If you have any further questions, feel free to ask!\"",
+      "expected_agent_calls": "",
+      "latency": "7.3762538750015665",
+      "activation_count": "4",
+      "activations_made": [
+        {
+          "agent_name": "email_ingestion_agent",
+          "tool_result": {
+            "emails": [
+              {
+                "id": "123",
+                "subject": "Need help with my order",
+                "body": "Hi, I placed an order last week, but it hasn't arrived yet. Can you help me track it?"
+              },
+              {
+                "id": "124",
+                "subject": "Question about my subscription",
+                "body": "Hello, I have a question about my subscription renewal. Can you provide more details?"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "sentiment_analysis_agent",
+          "tool_result": {
+            "sentiment": [
+              {
+                "email_id": "123",
+                "sentiment": "neutral"
+              },
+              {
+                "email_id": "124",
+                "sentiment": "positive"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "faq_knowledge_base_agent",
+          "tool_result": {
+            "responses": [
+              {
+                "email_id": "123",
+                "response": "Please allow 3-5 business days for your order to arrive."
+              },
+              {
+                "email_id": "124",
+                "response": "Your subscription will renew on the 15th of next month."
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "escalation_agent",
+          "tool_result": {}
+        }
+      ],
+      "token_count": "",
+      "cost_estimate": "",
+      "expected_activations": [
+        {
+          "agent_name": "email_ingestion_agent",
+          "tool_result": {
+            "emails": [
+              {
+                "id": "123",
+                "subject": "Need help with my order",
+                "body": "Hi, I placed an order last week, but it hasn't arrived yet. Can you help me track it?"
+              },
+              {
+                "id": "124",
+                "subject": "Question about my subscription",
+                "body": "Hello, I have a question about my subscription renewal. Can you provide more details?"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "sentiment_analysis_agent",
+          "tool_result": {
+            "sentiment": [
+              {
+                "email_id": "123",
+                "sentiment": "neutral"
+              },
+              {
+                "email_id": "124",
+                "sentiment": "positive"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "faq_knowledge_base_agent",
+          "tool_result": {
+            "responses": [
+              {
+                "email_id": "123",
+                "response": "Please allow 3-5 business days for your order to arrive."
+              },
+              {
+                "email_id": "124",
+                "response": "Your subscription will renew on the 15th of next month."
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "escalation_agent",
+          "tool_result": {}
+        }
+      ]
+    },
+    {
+      "topic": "Scalability",
+      "question": "How would you modify the pipeline to handle a high volume of customer emails efficiently?",
+      "expected_answer": "To efficiently handle a high volume of customer emails, consider the following modifications to your pipeline:\n\n1. **Email Ingestion:** Implement an automated email ingestion agent that fetches new emails from your inbox or a message queue, filtering out spam and irrelevant messages. This ensures that only relevant inquiries are processed.\n\n2. **Sentiment Analysis:** Utilize a sentiment analysis agent to evaluate the tone of each email. This helps prioritize responses based on urgency, allowing you to address critical issues promptly while managing less urgent inquiries efficiently.\n\n3. **Knowledge Base Integration:** Incorporate a FAQ knowledge base agent that can automatically generate draft responses for common inquiries. This reduces the workload on human agents by providing quick answers to frequently asked questions.\n\n4. **Escalation Protocol:** Establish an escalation agent that assesses whether any emails require human intervention based on their sentiment and complexity. This ensures that only the most critical issues are escalated, allowing human agents to focus on more complex cases.\n\nBy implementing these strategies, you can streamline your email processing pipeline, improve response times, and enhance overall customer satisfaction.",
+      "expected_agent_calls": "",
+      "latency": "6.132950916988193",
+      "activation_count": "4",
+      "activations_made": [
+        {
+          "agent_name": "email_ingestion_agent",
+          "tool_result": {
+            "emails": [
+              {
+                "id": "123",
+                "subject": "Need help with my order",
+                "body": "Hi, I placed an order last week, but it hasn't arrived yet. Can you help me track it?"
+              },
+              {
+                "id": "124",
+                "subject": "Question about my subscription",
+                "body": "Hello, I have a question about my subscription renewal. Can you provide more details?"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "sentiment_analysis_agent",
+          "tool_result": {
+            "sentiment": [
+              {
+                "email_id": "123",
+                "sentiment": "neutral"
+              },
+              {
+                "email_id": "124",
+                "sentiment": "positive"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "faq_knowledge_base_agent",
+          "tool_result": {
+            "responses": [
+              {
+                "email_id": "123",
+                "response": "Please allow 3-5 business days for your order to arrive."
+              },
+              {
+                "email_id": "124",
+                "response": "Your subscription will renew on the 15th of next month."
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "escalation_agent",
+          "tool_result": {}
+        }
+      ],
+      "token_count": "",
+      "cost_estimate": "",
+      "expected_activations": [
+        {
+          "agent_name": "email_ingestion_agent",
+          "tool_result": {
+            "emails": [
+              {
+                "id": "123",
+                "subject": "Need help with my order",
+                "body": "Hi, I placed an order last week, but it hasn't arrived yet. Can you help me track it?"
+              },
+              {
+                "id": "124",
+                "subject": "Question about my subscription",
+                "body": "Hello, I have a question about my subscription renewal. Can you provide more details?"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "sentiment_analysis_agent",
+          "tool_result": {
+            "sentiment": [
+              {
+                "email_id": "123",
+                "sentiment": "neutral"
+              },
+              {
+                "email_id": "124",
+                "sentiment": "positive"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "faq_knowledge_base_agent",
+          "tool_result": {
+            "responses": [
+              {
+                "email_id": "123",
+                "response": "Please allow 3-5 business days for your order to arrive."
+              },
+              {
+                "email_id": "124",
+                "response": "Your subscription will renew on the 15th of next month."
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "escalation_agent",
+          "tool_result": {}
+        }
+      ]
+    },
+    {
+      "topic": "Error Handling",
+      "question": "What happens if an email cannot be processed due to an API failure or message queue issue? How should the pipeline handle such cases?",
+      "expected_answer": "If an email cannot be processed due to an API failure or message queue issue, the pipeline should implement the following handling strategies:\n\n1. **Error Logging:** Log the error details for troubleshooting and monitoring purposes. This helps in identifying recurring issues and facilitates timely resolution.\n\n2. **Notification:** Notify the system administrator or relevant personnel about the failure to ensure they are aware of the issue and can take appropriate action.\n\n3. **Fallback Mechanism:** If possible, implement a fallback mechanism to retry fetching or processing the email after a certain interval or switch to a backup service.\n\n4. **Graceful Degradation:** If the failure occurs during sentiment analysis or knowledge base querying, skip the affected email and continue processing the remaining emails to maintain overall pipeline functionality.\n\n5. **User Communication:** If necessary, provide a default response to the user indicating that their request is being processed, but there may be delays due to technical issues.\n\nBy following these strategies, the pipeline can effectively manage failures and ensure a smooth user experience.",
+      "expected_agent_calls": "",
+      "latency": "7.862268707991461",
+      "activation_count": "4",
+      "activations_made": [
+        {
+          "agent_name": "email_ingestion_agent",
+          "tool_result": {
+            "emails": [
+              {
+                "id": "123",
+                "subject": "Need help with my order",
+                "body": "Hi, I placed an order last week, but it hasn't arrived yet. Can you help me track it?"
+              },
+              {
+                "id": "124",
+                "subject": "Question about my subscription",
+                "body": "Hello, I have a question about my subscription renewal. Can you provide more details?"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "sentiment_analysis_agent",
+          "tool_result": {
+            "sentiment": [
+              {
+                "email_id": "123",
+                "sentiment": "neutral"
+              },
+              {
+                "email_id": "124",
+                "sentiment": "positive"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "faq_knowledge_base_agent",
+          "tool_result": {
+            "responses": [
+              {
+                "email_id": "123",
+                "response": "Please allow 3-5 business days for your order to arrive."
+              },
+              {
+                "email_id": "124",
+                "response": "Your subscription will renew on the 15th of next month."
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "escalation_agent",
+          "tool_result": {}
+        }
+      ],
+      "token_count": "",
+      "cost_estimate": "",
+      "expected_activations": [
+        {
+          "agent_name": "email_ingestion_agent",
+          "tool_result": {
+            "emails": [
+              {
+                "id": "123",
+                "subject": "Need help with my order",
+                "body": "Hi, I placed an order last week, but it hasn't arrived yet. Can you help me track it?"
+              },
+              {
+                "id": "124",
+                "subject": "Question about my subscription",
+                "body": "Hello, I have a question about my subscription renewal. Can you provide more details?"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "sentiment_analysis_agent",
+          "tool_result": {
+            "sentiment": [
+              {
+                "email_id": "123",
+                "sentiment": "neutral"
+              },
+              {
+                "email_id": "124",
+                "sentiment": "positive"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "faq_knowledge_base_agent",
+          "tool_result": {
+            "responses": [
+              {
+                "email_id": "123",
+                "response": "Please allow 3-5 business days for your order to arrive."
+              },
+              {
+                "email_id": "124",
+                "response": "Your subscription will renew on the 15th of next month."
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "escalation_agent",
+          "tool_result": {}
+        }
+      ]
+    },
+    {
+      "topic": "Customer Urgency Handling",
+      "question": "Hi, my user_id is 123. I've been trying to get in touch with customer support for 3 days now, and I'm not getting any response. Can you help me?",
+      "expected_answer": "Hello! I understand you've been trying to reach customer support without success. Here\u2019s what I found regarding your inquiries:\n\n1. **Order Inquiry:** You mentioned needing help with an order that hasn't arrived yet. The response to this is: \"Please allow 3-5 business days for your order to arrive.\"\n\n2. **Subscription Question:** You also inquired about your subscription renewal. The response is: \"Your subscription will renew on the 15th of next month.\"\n\nBoth inquiries have been assessed, and there is no immediate need for escalation as the sentiments were neutral to positive. \n\nWould you like me to send these responses on your behalf, or do you need any modifications? Let me know how you would like to proceed!",
+      "expected_agent_calls": "",
+      "latency": "7.823068249999778",
+      "activation_count": "4",
+      "activations_made": [
+        {
+          "agent_name": "email_ingestion_agent",
+          "tool_result": {
+            "emails": [
+              {
+                "id": "123",
+                "subject": "Need help with my order",
+                "body": "Hi, I placed an order last week, but it hasn't arrived yet. Can you help me track it?"
+              },
+              {
+                "id": "124",
+                "subject": "Question about my subscription",
+                "body": "Hello, I have a question about my subscription renewal. Can you provide more details?"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "sentiment_analysis_agent",
+          "tool_result": {
+            "sentiment": [
+              {
+                "email_id": "123",
+                "sentiment": "neutral"
+              },
+              {
+                "email_id": "124",
+                "sentiment": "positive"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "faq_knowledge_base_agent",
+          "tool_result": {
+            "responses": [
+              {
+                "email_id": "123",
+                "response": "Please allow 3-5 business days for your order to arrive."
+              },
+              {
+                "email_id": "124",
+                "response": "Your subscription will renew on the 15th of next month."
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "escalation_agent",
+          "tool_result": {}
+        }
+      ],
+      "token_count": "",
+      "cost_estimate": "",
+      "expected_activations": [
+        {
+          "agent_name": "email_ingestion_agent",
+          "tool_result": {
+            "emails": [
+              {
+                "id": "123",
+                "subject": "Need help with my order",
+                "body": "Hi, I placed an order last week, but it hasn't arrived yet. Can you help me track it?"
+              },
+              {
+                "id": "124",
+                "subject": "Question about my subscription",
+                "body": "Hello, I have a question about my subscription renewal. Can you provide more details?"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "sentiment_analysis_agent",
+          "tool_result": {
+            "sentiment": [
+              {
+                "email_id": "123",
+                "sentiment": "neutral"
+              },
+              {
+                "email_id": "124",
+                "sentiment": "positive"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "faq_knowledge_base_agent",
+          "tool_result": {
+            "responses": [
+              {
+                "email_id": "123",
+                "response": "Please allow 3-5 business days for your order to arrive."
+              },
+              {
+                "email_id": "124",
+                "response": "Your subscription will renew on the 15th of next month."
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "escalation_agent",
+          "tool_result": {}
+        }
+      ]
+    },
+    {
+      "topic": "Enhancements",
+      "question": "If you wanted to improve the accuracy of sentiment and urgency detection, what techniques or models would you integrate into the `sentiment_analysis_agent`?",
+      "expected_answer": "To improve the accuracy of sentiment and urgency detection in the `sentiment_analysis_agent`, consider integrating the following techniques and models:\n\n1. **Advanced Models**: Implement state-of-the-art models like BERT or RoBERTa, which are known for their superior performance in understanding context and nuances in text.\n\n2. **Multi-Class Classification**: Move beyond basic sentiment categories (positive, neutral, negative) by adopting a multi-class classification approach that can capture a wider range of sentiments, such as joy, anger, sadness, etc.\n\n3. **Context-Aware Techniques**: Incorporate context-aware sentiment analysis methods that take into account the conversation's context, enhancing the accuracy of urgency detection.\n\n4. **Ensemble Methods**: Utilize ensemble techniques that combine predictions from multiple models to improve overall performance in sentiment and urgency detection.\n\n5. **Regular Dataset Updates**: Continuously update the training dataset with new examples to adapt to evolving language use and sentiment expressions, ensuring the model remains relevant and accurate.",
+      "expected_agent_calls": "",
+      "latency": "6.490732582999044",
+      "activation_count": "5",
+      "activations_made": [
+        {
+          "agent_name": "sentiment_analysis_agent",
+          "tool_result": {
+            "sentiment": [
+              {
+                "email_id": "123",
+                "sentiment": "neutral"
+              },
+              {
+                "email_id": "124",
+                "sentiment": "positive"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "sentiment_analysis_agent",
+          "tool_result": {
+            "sentiment": [
+              {
+                "email_id": "123",
+                "sentiment": "neutral"
+              },
+              {
+                "email_id": "124",
+                "sentiment": "positive"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "sentiment_analysis_agent",
+          "tool_result": {
+            "sentiment": [
+              {
+                "email_id": "123",
+                "sentiment": "neutral"
+              },
+              {
+                "email_id": "124",
+                "sentiment": "positive"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "sentiment_analysis_agent",
+          "tool_result": {
+            "sentiment": [
+              {
+                "email_id": "123",
+                "sentiment": "neutral"
+              },
+              {
+                "email_id": "124",
+                "sentiment": "positive"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "sentiment_analysis_agent",
+          "tool_result": {
+            "sentiment": [
+              {
+                "email_id": "123",
+                "sentiment": "neutral"
+              },
+              {
+                "email_id": "124",
+                "sentiment": "positive"
+              }
+            ]
+          }
+        }
+      ],
+      "token_count": "",
+      "cost_estimate": "",
+      "expected_activations": [
+        {
+          "agent_name": "sentiment_analysis_agent",
+          "tool_result": {
+            "sentiment": [
+              {
+                "email_id": "123",
+                "sentiment": "neutral"
+              },
+              {
+                "email_id": "124",
+                "sentiment": "positive"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "sentiment_analysis_agent",
+          "tool_result": {
+            "sentiment": [
+              {
+                "email_id": "123",
+                "sentiment": "neutral"
+              },
+              {
+                "email_id": "124",
+                "sentiment": "positive"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "sentiment_analysis_agent",
+          "tool_result": {
+            "sentiment": [
+              {
+                "email_id": "123",
+                "sentiment": "neutral"
+              },
+              {
+                "email_id": "124",
+                "sentiment": "positive"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "sentiment_analysis_agent",
+          "tool_result": {
+            "sentiment": [
+              {
+                "email_id": "123",
+                "sentiment": "neutral"
+              },
+              {
+                "email_id": "124",
+                "sentiment": "positive"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "sentiment_analysis_agent",
+          "tool_result": {
+            "sentiment": [
+              {
+                "email_id": "123",
+                "sentiment": "neutral"
+              },
+              {
+                "email_id": "124",
+                "sentiment": "positive"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
