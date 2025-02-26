@@ -1,0 +1,1416 @@
+{
+  "test_cases": [
+    {
+      "topic": "Order Tracking",
+      "question": "Hi, I placed an order last week, but it hasn't arrived yet. Can you help me track it?",
+      "expected_answer": "Your order is expected to arrive within 3-5 business days. If you have any further questions or need assistance, feel free to ask!",
+      "expected_agent_calls": "",
+      "latency": "11437.63 ms",
+      "activation_count": 12,
+      "activations_made": [
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Fetch new emails from the inbox (or a message queue), extract relevant text, and format data for further processing."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Email Ingestion Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to fetch new emails from the inbox in order to extract the relevant text and format it for processing."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Analyze each fetched email's tone and sentiment to determine urgency and required actions."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Sentiment Analysis Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to analyze the tone and sentiment of the provided emails to determine their urgency and required actions."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Query the knowledge base using the fetched emails to find relevant answers."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "FAQ Lookup Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Decide whether to escalate the response to a human operator based on the analysis."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Escalation Decision Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to analyze the email responses to decide whether any should be escalated to a human operator based on the provided context."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        }
+      ],
+      "token_count": "",
+      "cost_estimate": "",
+      "expected_activations": [
+        {
+          "agent_name": "email_ingestion_agent",
+          "tool_result": {
+            "emails": [
+              {
+                "id": "123",
+                "subject": "Need help with my order",
+                "body": "Hi, I placed an order last week, but it hasn't arrived yet. Can you help me track it?"
+              },
+              {
+                "id": "124",
+                "subject": "Question about my subscription",
+                "body": "Hello, I have a question about my subscription renewal. Can you provide more details?"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "sentiment_analysis_agent",
+          "tool_result": {
+            "sentiment": [
+              {
+                "email_id": "123",
+                "sentiment": "neutral"
+              },
+              {
+                "email_id": "124",
+                "sentiment": "positive"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "faq_knowledge_base_agent",
+          "tool_result": {
+            "responses": [
+              {
+                "email_id": "123",
+                "response": "Please allow 3-5 business days for your order to arrive."
+              },
+              {
+                "email_id": "124",
+                "response": "Your subscription will renew on the 15th of next month."
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "escalation_agent",
+          "tool_result": {}
+        }
+      ]
+    },
+    {
+      "topic": "Subscription Inquiry",
+      "question": "Hello, I have a question about my subscription renewal. Can you provide more details?",
+      "expected_answer": "Thank you for your inquiry regarding your subscription. Your subscription is set to renew on the 15th of next month. If you have any further questions or need assistance, feel free to reach out.",
+      "expected_agent_calls": "",
+      "latency": "8501.76 ms",
+      "activation_count": 12,
+      "activations_made": [
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Fetch new emails from the inbox (or a message queue), extract relevant text, and format data for further processing."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Email Ingestion Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to fetch new emails from the inbox to extract relevant text and format it for further processing. This is the crucial first step in fulfilling the task requirements."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Analyze each fetched email's tone and sentiment to determine urgency and required actions."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Sentiment Analysis Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Query the knowledge base using the fetched emails to find relevant answers."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "FAQ Lookup Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to query the knowledge base using the provided email IDs in order to find relevant answers and create a response mapped to each email's ID."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Decide whether to escalate the response to a human operator based on the analysis."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Escalation Decision Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to analyze the provided emails to determine whether the responses should be escalated to a human operator or not."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        }
+      ],
+      "token_count": "",
+      "cost_estimate": "",
+      "expected_activations": [
+        {
+          "agent_name": "email_ingestion_agent",
+          "tool_result": {
+            "emails": [
+              {
+                "id": "123",
+                "subject": "Need help with my order",
+                "body": "Hi, I placed an order last week, but it hasn't arrived yet. Can you help me track it?"
+              },
+              {
+                "id": "124",
+                "subject": "Question about my subscription",
+                "body": "Hello, I have a question about my subscription renewal. Can you provide more details?"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "sentiment_analysis_agent",
+          "tool_result": {
+            "sentiment": [
+              {
+                "email_id": "123",
+                "sentiment": "neutral"
+              },
+              {
+                "email_id": "124",
+                "sentiment": "positive"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "faq_knowledge_base_agent",
+          "tool_result": {
+            "responses": [
+              {
+                "email_id": "123",
+                "response": "Please allow 3-5 business days for your order to arrive."
+              },
+              {
+                "email_id": "124",
+                "response": "Your subscription will renew on the 15th of next month."
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "escalation_agent",
+          "tool_result": {}
+        }
+      ]
+    },
+    {
+      "topic": "Urgent Support Request",
+      "question": "Hi, my user_id is 123. I've been trying to get in touch with customer support for 3 days now, and I'm not getting any response. Can you help me?",
+      "expected_answer": "Thank you for your urgent support request. Here are the updates regarding your inquiries:\n\n1. **Order Status:** Please allow 3-5 business days for your order to arrive.\n2. **Subscription Renewal:** Your subscription will renew on the 15th of next month.\n\nIf you need further assistance, feel free to reach out!",
+      "expected_agent_calls": "",
+      "latency": "7825.68 ms",
+      "activation_count": 12,
+      "activations_made": [
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Fetch new emails from the inbox (or a message queue), extract relevant text, and format data for further processing."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Email Ingestion Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to fetch new emails from the inbox and extract relevant information including the subject and body. I'll use the Email Ingestion Tool to start this process."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Analyze each fetched email's tone and sentiment to determine urgency and required actions."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Sentiment Analysis Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to analyze the tone and sentiment of the provided emails to determine their urgency and required actions. I will use the Sentiment Analysis Tool for this task."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Query the knowledge base using the fetched emails to find relevant answers."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "FAQ Lookup Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to query the knowledge base with the provided email IDs to find relevant answers."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Decide whether to escalate the response to a human operator based on the analysis."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Escalation Decision Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to analyze the provided email responses to determine whether any of them require escalation to a human operator."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        }
+      ],
+      "token_count": "",
+      "cost_estimate": "",
+      "expected_activations": [
+        {
+          "agent_name": "email_ingestion_agent",
+          "tool_result": {
+            "emails": [
+              {
+                "id": "123",
+                "subject": "Need help with my order",
+                "body": "Hi, I placed an order last week, but it hasn't arrived yet. Can you help me track it?"
+              },
+              {
+                "id": "124",
+                "subject": "Question about my subscription",
+                "body": "Hello, I have a question about my subscription renewal. Can you provide more details?"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "sentiment_analysis_agent",
+          "tool_result": {
+            "sentiment": [
+              {
+                "email_id": "123",
+                "sentiment": "neutral"
+              },
+              {
+                "email_id": "124",
+                "sentiment": "positive"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "faq_knowledge_base_agent",
+          "tool_result": {
+            "responses": [
+              {
+                "email_id": "123",
+                "response": "Please allow 3-5 business days for your order to arrive."
+              },
+              {
+                "email_id": "124",
+                "response": "Your subscription will renew on the 15th of next month."
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "escalation_agent",
+          "tool_result": {}
+        }
+      ]
+    },
+    {
+      "topic": "Refund Request",
+      "question": "I want to request a refund for my last purchase. How can I proceed?",
+      "expected_answer": "Your refund request has been noted. Please allow 3-5 business days for your order to arrive. Additionally, be aware that your subscription will renew on the 15th of next month.",
+      "expected_agent_calls": "",
+      "latency": "8692.47 ms",
+      "activation_count": 12,
+      "activations_made": [
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Fetch new emails from the inbox (or a message queue), extract relevant text, and format data for further processing."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Email Ingestion Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to gather the new emails from the inbox to provide a structured list of relevant emails including their subjects and bodies."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Analyze each fetched email's tone and sentiment to determine urgency and required actions."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Sentiment Analysis Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to analyze the tone and sentiment of the emails provided to determine their urgency and classify them accordingly."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Query the knowledge base using the fetched emails to find relevant answers."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "FAQ Lookup Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to query the knowledge base using the provided email IDs to find relevant answers and ensure that they are mapped correctly to each email's ID."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Decide whether to escalate the response to a human operator based on the analysis."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Escalation Decision Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to analyze the provided emails to determine whether to escalate any responses to a human operator."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        }
+      ],
+      "token_count": "",
+      "cost_estimate": "",
+      "expected_activations": [
+        {
+          "agent_name": "email_ingestion_agent",
+          "tool_result": {
+            "emails": [
+              {
+                "id": "123",
+                "subject": "Need help with my order",
+                "body": "Hi, I placed an order last week, but it hasn't arrived yet. Can you help me track it?"
+              },
+              {
+                "id": "124",
+                "subject": "Question about my subscription",
+                "body": "Hello, I have a question about my subscription renewal. Can you provide more details?"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "faq_knowledge_base_agent",
+          "tool_result": {
+            "responses": [
+              {
+                "email_id": "123",
+                "response": "Please allow 3-5 business days for your order to arrive."
+              },
+              {
+                "email_id": "124",
+                "response": "Your subscription will renew on the 15th of next month."
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "escalation_agent",
+          "tool_result": {}
+        }
+      ]
+    },
+    {
+      "topic": "Technical Issue",
+      "question": "I'm having trouble logging into my account. Can you help me reset my password?",
+      "expected_answer": "Thank you for your inquiry regarding the technical issue. Here are the responses related to your concerns:\n\n1. For your order, please allow 3-5 business days for it to arrive.\n2. Your subscription is set to renew on the 15th of next month.\n\nIf you have any further questions or need additional assistance, feel free to ask!",
+      "expected_agent_calls": "",
+      "latency": "9879.27 ms",
+      "activation_count": 12,
+      "activations_made": [
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Fetch new emails from the inbox (or a message queue), extract relevant text, and format data for further processing."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Email Ingestion Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to first fetch new emails from the inbox to extract relevant text and then format the data accordingly."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Analyze each fetched email's tone and sentiment to determine urgency and required actions."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Sentiment Analysis Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to analyze the tone and sentiment of the provided emails to determine their urgency and required actions."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Query the knowledge base using the fetched emails to find relevant answers."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "FAQ Lookup Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to query the knowledge base for the provided email IDs to find relevant answers and map the responses back to each email ID."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Decide whether to escalate the response to a human operator based on the analysis."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Escalation Decision Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to analyze the emails to decide whether to escalate them for a human operator to handle. I will evaluate the content provided to determine if escalation is necessary."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        }
+      ],
+      "token_count": "",
+      "cost_estimate": "",
+      "expected_activations": [
+        {
+          "agent_name": "email_ingestion_agent",
+          "tool_result": {
+            "emails": [
+              {
+                "id": "123",
+                "subject": "Need help with my order",
+                "body": "Hi, I placed an order last week, but it hasn't arrived yet. Can you help me track it?"
+              },
+              {
+                "id": "124",
+                "subject": "Question about my subscription",
+                "body": "Hello, I have a question about my subscription renewal. Can you provide more details?"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "faq_knowledge_base_agent",
+          "tool_result": {
+            "responses": [
+              {
+                "email_id": "123",
+                "response": "Please allow 3-5 business days for your order to arrive."
+              },
+              {
+                "email_id": "124",
+                "response": "Your subscription will renew on the 15th of next month."
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "escalation_agent",
+          "tool_result": {}
+        }
+      ]
+    },
+    {
+      "topic": "Cancellation Request",
+      "question": "I\u2019d like to cancel my subscription. What steps do I need to follow?",
+      "expected_answer": "Your cancellation request has been noted. Please allow 3-5 business days for any order-related inquiries to be processed. Additionally, be aware that your subscription is set to renew on the 15th of next month.",
+      "expected_agent_calls": "",
+      "latency": "7873.67 ms",
+      "activation_count": 12,
+      "activations_made": [
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Fetch new emails from the inbox (or a message queue), extract relevant text, and format data for further processing."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Email Ingestion Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to fetch new emails from the inbox to extract the relevant text and then format the data for further processing."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Analyze each fetched email's tone and sentiment to determine urgency and required actions."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Sentiment Analysis Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to analyze the sentiment of the emails to determine their urgency and required actions."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Query the knowledge base using the fetched emails to find relevant answers."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "FAQ Lookup Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to query the knowledge base to find relevant answers for the provided email IDs to fulfill the task requirement."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Decide whether to escalate the response to a human operator based on the analysis."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Escalation Decision Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to analyze the emails to determine if the responses require escalation to a human operator."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        }
+      ],
+      "token_count": "",
+      "cost_estimate": "",
+      "expected_activations": [
+        {
+          "agent_name": "faq_knowledge_base_agent",
+          "tool_result": {
+            "responses": [
+              {
+                "email_id": "123",
+                "response": "Please allow 3-5 business days for your order to arrive."
+              },
+              {
+                "email_id": "124",
+                "response": "Your subscription will renew on the 15th of next month."
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "sentiment_analysis_agent",
+          "tool_result": {
+            "sentiment": [
+              {
+                "email_id": "123",
+                "sentiment": "neutral"
+              },
+              {
+                "email_id": "124",
+                "sentiment": "positive"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "escalation_agent",
+          "tool_result": {}
+        }
+      ]
+    },
+    {
+      "topic": "Product Information",
+      "question": "Can you tell me more details about the features of your premium plan?",
+      "expected_answer": "Here is the product information you requested:\n\n1. **Order Arrival:** Please allow 3-5 business days for your order to arrive.\n2. **Subscription Renewal:** Your subscription will renew on the 15th of next month.",
+      "expected_agent_calls": "",
+      "latency": "8710.36 ms",
+      "activation_count": 12,
+      "activations_made": [
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Fetch new emails from the inbox (or a message queue), extract relevant text, and format data for further processing."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Email Ingestion Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to fetch new emails from the inbox, extract the relevant text, and structure it into a list that includes the subject and body of each email for further processing."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Analyze each fetched email's tone and sentiment to determine urgency and required actions."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Sentiment Analysis Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to analyze the tone and sentiment of the two provided emails to classify them based on urgency and required actions."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Query the knowledge base using the fetched emails to find relevant answers."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "FAQ Lookup Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "To proceed with querying the knowledge base using the provided email IDs, I will utilize the FAQ Lookup Tool that can retrieve relevant answers based on the given email IDs."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Decide whether to escalate the response to a human operator based on the analysis."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Escalation Decision Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to analyze the provided email responses to determine if any of them should be escalated to a human operator based on their content."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        }
+      ],
+      "token_count": "",
+      "cost_estimate": "",
+      "expected_activations": [
+        {
+          "agent_name": "faq_knowledge_base_agent",
+          "tool_result": {
+            "responses": [
+              {
+                "email_id": "123",
+                "response": "Please allow 3-5 business days for your order to arrive."
+              },
+              {
+                "email_id": "124",
+                "response": "Your subscription will renew on the 15th of next month."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "topic": "Payment Issue",
+      "question": "I was charged twice for my last payment. How can I get a refund for the duplicate charge?",
+      "expected_answer": "To address your payment issue, we have reviewed the inquiries related to your account. \n\n1. **Order Delivery Inquiry:** The response indicates a clear timeframe for your order delivery, ensuring you know when to expect your items. \n\n2. **Subscription Renewal Inquiry:** You have been informed about the subscription renewal date, which is straightforward and should help clarify any concerns regarding your payment schedule. \n\nIf you have further questions or need additional assistance, please let us know!",
+      "expected_agent_calls": "",
+      "latency": "13569.08 ms",
+      "activation_count": 14,
+      "activations_made": [
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Fetch new emails from the inbox (or a message queue), extract relevant text, and format data for further processing."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Email Ingestion Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to begin by fetching the new emails from the specified inbox to extract relevant information, as this is the first step in preparing the structured list required for processing."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Delegate work to coworker",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "Thought: I have successfully fetched the new emails from the inbox and gathered the relevant data including the subject and body of each email. Now, I will format this information into a structured list as per the task requirement."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Ask question to coworker",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "Thought: I will now focus on asking a question regarding the next steps for processing the emails since I am unable to delegate the formatting task as planned."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Analyze each fetched email's tone and sentiment to determine urgency and required actions."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Sentiment Analysis Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to analyze the tone and sentiment of the provided emails to determine their urgency and required actions. I will use the Sentiment Analysis Tool to accomplish this."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Query the knowledge base using the fetched emails to find relevant answers."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "FAQ Lookup Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to query the knowledge base using the provided email IDs to fetch relevant answers for each email, ensuring I format the final response according to the given criteria."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Decide whether to escalate the response to a human operator based on the analysis."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Escalation Decision Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to analyze the email responses to determine which, if any, require escalation to a human operator. The criteria for escalation usually depend on the complexity of the inquiry, customer dissatisfaction, or specific requests that may require nuanced handling by a human."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        }
+      ],
+      "token_count": "",
+      "cost_estimate": "",
+      "expected_activations": [
+        {
+          "agent_name": "email_ingestion_agent",
+          "tool_result": {
+            "emails": [
+              {
+                "id": "123",
+                "subject": "Need help with my order",
+                "body": "Hi, I placed an order last week, but it hasn't arrived yet. Can you help me track it?"
+              },
+              {
+                "id": "124",
+                "subject": "Question about my subscription",
+                "body": "Hello, I have a question about my subscription renewal. Can you provide more details?"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "sentiment_analysis_agent",
+          "tool_result": {
+            "sentiment": [
+              {
+                "email_id": "123",
+                "sentiment": "neutral"
+              },
+              {
+                "email_id": "124",
+                "sentiment": "positive"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "faq_knowledge_base_agent",
+          "tool_result": {
+            "responses": [
+              {
+                "email_id": "123",
+                "response": "Please allow 3-5 business days for your order to arrive."
+              },
+              {
+                "email_id": "124",
+                "response": "Your subscription will renew on the 15th of next month."
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "escalation_agent",
+          "tool_result": {}
+        }
+      ]
+    },
+    {
+      "topic": "Service Downtime",
+      "question": "Is there an issue with your service? I can\u2019t access my dashboard right now.",
+      "expected_answer": "The service downtime issue has not resulted in any escalated inquiries. The responses received were related to order delivery timelines and subscription renewals, which do not directly address the service downtime concern. If you have specific questions regarding the downtime, please provide more details.",
+      "expected_agent_calls": "",
+      "latency": "8996.56 ms",
+      "activation_count": 12,
+      "activations_made": [
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Fetch new emails from the inbox (or a message queue), extract relevant text, and format data for further processing."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Email Ingestion Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to fetch new emails from the inbox to gather the relevant information that matches the expected criteria of a structured list of emails, including their subject and body."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Analyze each fetched email's tone and sentiment to determine urgency and required actions."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Sentiment Analysis Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to analyze the tone and sentiment of the emails to determine their urgency and required actions based on the content provided."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Query the knowledge base using the fetched emails to find relevant answers."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "FAQ Lookup Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "To complete the task, I need to query the knowledge base using the given email IDs to find relevant answers. The provided email IDs are '1' and '2' and they have different sentiments. I will use these email IDs to fetch the necessary information."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Decide whether to escalate the response to a human operator based on the analysis."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Escalation Decision Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to analyze the emails to determine if they should be escalated for a human response. I will use the Escalation Decision Tool to make this assessment."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        }
+      ],
+      "token_count": "",
+      "cost_estimate": "",
+      "expected_activations": [
+        {
+          "agent_name": "email_ingestion_agent",
+          "tool_result": {
+            "emails": [
+              {
+                "id": "123",
+                "subject": "Need help with my order",
+                "body": "Hi, I placed an order last week, but it hasn't arrived yet. Can you help me track it?"
+              },
+              {
+                "id": "124",
+                "subject": "Question about my subscription",
+                "body": "Hello, I have a question about my subscription renewal. Can you provide more details?"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "sentiment_analysis_agent",
+          "tool_result": {
+            "sentiment": [
+              {
+                "email_id": "123",
+                "sentiment": "neutral"
+              },
+              {
+                "email_id": "124",
+                "sentiment": "positive"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "faq_knowledge_base_agent",
+          "tool_result": {
+            "responses": [
+              {
+                "email_id": "123",
+                "response": "Please allow 3-5 business days for your order to arrive."
+              },
+              {
+                "email_id": "124",
+                "response": "Your subscription will renew on the 15th of next month."
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "escalation_agent",
+          "tool_result": {}
+        }
+      ]
+    },
+    {
+      "topic": "Shipping Inquiry",
+      "question": "I need to update the shipping address for my recent order. Can you help?",
+      "expected_answer": "Thank you for your inquiry regarding shipping. Please allow 3-5 business days for your order to arrive. If you have any further questions or need assistance, feel free to reach out.",
+      "expected_agent_calls": "",
+      "latency": "7400.81 ms",
+      "activation_count": 12,
+      "activations_made": [
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Fetch new emails from the inbox (or a message queue), extract relevant text, and format data for further processing."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Email Ingestion Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to fetch new emails from the inbox to extract the relevant text (subject and body) and format it into a structured list as specified in the criteria."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Analyze each fetched email's tone and sentiment to determine urgency and required actions."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Sentiment Analysis Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to analyze the tone and sentiment of the provided emails to determine their urgency and required actions. I will use the Sentiment Analysis Tool to gather the necessary insights."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Query the knowledge base using the fetched emails to find relevant answers."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "FAQ Lookup Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to query the knowledge base using the provided email IDs to find relevant answers, ensuring that the response is mapped to each email's ID as required."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Decide whether to escalate the response to a human operator based on the analysis."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Escalation Decision Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to decide whether to escalate the responses based on the email analysis I have. I will analyze the provided context and assess the necessity for escalation."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        }
+      ],
+      "token_count": "",
+      "cost_estimate": "",
+      "expected_activations": [
+        {
+          "agent_name": "email_ingestion_agent",
+          "tool_result": {
+            "emails": [
+              {
+                "id": "123",
+                "subject": "Need help with my order",
+                "body": "Hi, I placed an order last week, but it hasn't arrived yet. Can you help me track it?"
+              },
+              {
+                "id": "124",
+                "subject": "Question about my subscription",
+                "body": "Hello, I have a question about my subscription renewal. Can you provide more details?"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "faq_knowledge_base_agent",
+          "tool_result": {
+            "responses": [
+              {
+                "email_id": "123",
+                "response": "Please allow 3-5 business days for your order to arrive."
+              },
+              {
+                "email_id": "124",
+                "response": "Your subscription will renew on the 15th of next month."
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "escalation_agent",
+          "tool_result": {}
+        }
+      ]
+    }
+  ]
+}

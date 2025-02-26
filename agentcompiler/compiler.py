@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import Dict, List
-from models.orchestrator import OrchestrationPlan, CommunicationStructure
-from models.agent_execution_step import AgentExecutionStep, AgentExecuted
+from agentcompiler.models.orchestrator import OrchestrationPlan, CommunicationStructure
+from agentcompiler.models.agent_execution_step import AgentExecutionStep, AgentExecuted
 
 class ExecutionStrategy(ABC):
     """Abstract base class for different execution strategies"""

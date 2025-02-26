@@ -1,0 +1,1772 @@
+{
+  "test_cases": [
+    {
+      "topic": "Paper Retrieval",
+      "question": "Where can I find the latest research papers on deep learning?",
+      "expected_answer": "To retrieve the requested paper, please allow 3-5 business days for your order to arrive. Additionally, if you are inquiring about a subscription, please note that it will renew on the 15th of next month.",
+      "expected_agent_calls": "",
+      "latency": "11526.78 ms",
+      "Latencia": "",
+      "qtd_de_ativacoes": "",
+      "quais_ativacoes_foram_feitas": "",
+      "qtd_de_tokens": "",
+      "estimativa_de_custo": "",
+      "expected_activations": [
+        {
+          "agent_name": "paper_crawler_agent",
+          "tool_result": {
+            "papers": [
+              {
+                "id": "A123",
+                "title": "Advancements in Neural Networks",
+                "source": "ArXiv",
+                "url": "https://arxiv.org/abs/1234.56789"
+              },
+              {
+                "id": "B456",
+                "title": "Quantum Computing: A New Era",
+                "source": "Google Scholar",
+                "url": "https://scholar.google.com/scholar?q=Quantum+Computing"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "text_extraction_agent",
+          "tool_result": {
+            "extracted_text": [
+              {
+                "paper_id": "A123",
+                "text": "Neural networks have significantly improved over the last decade..."
+              },
+              {
+                "paper_id": "B456",
+                "text": "Quantum computing leverages principles of superposition and entanglement..."
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "summarization_agent",
+          "tool_result": {
+            "summaries": [
+              {
+                "paper_id": "A123",
+                "summary": "This paper discusses recent advancements in neural networks, highlighting key breakthroughs."
+              },
+              {
+                "paper_id": "B456",
+                "summary": "An overview of quantum computing, explaining fundamental principles and future implications."
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "topic_classifier_agent",
+          "tool_result": {
+            "classification": [
+              {
+                "paper_id": "A123",
+                "topics": [
+                  "Artificial Intelligence",
+                  "Deep Learning"
+                ]
+              },
+              {
+                "paper_id": "B456",
+                "topics": [
+                  "Quantum Computing",
+                  "Theoretical Physics"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "report_generator_agent",
+          "tool_result": {
+            "report": {
+              "title": "Weekly Research Highlights",
+              "entries": [
+                {
+                  "paper_id": "A123",
+                  "title": "Advancements in Neural Networks",
+                  "summary": "This paper discusses recent advancements in neural networks, highlighting key breakthroughs.",
+                  "topics": [
+                    "Artificial Intelligence",
+                    "Deep Learning"
+                  ]
+                },
+                {
+                  "paper_id": "B456",
+                  "title": "Quantum Computing: A New Era",
+                  "summary": "An overview of quantum computing, explaining fundamental principles and future implications.",
+                  "topics": [
+                    "Quantum Computing",
+                    "Theoretical Physics"
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "activation_count": 12,
+      "activations_made": [
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Fetch new emails from the inbox (or a message queue), extract relevant text, and format data for further processing."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Email Ingestion Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to fetch new emails from the inbox to extract the relevant information, including the subject and body, and then format this data as required."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Analyze each fetched email's tone and sentiment to determine urgency and required actions."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Sentiment Analysis Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to analyze the tone and sentiment of the provided emails to determine their urgency and required actions."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Query the knowledge base using the fetched emails to find relevant answers."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "FAQ Lookup Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to gather answers from the knowledge base using the provided email IDs. There are two email IDs to work with: '123' and '124'."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Decide whether to escalate the response to a human operator based on the analysis."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Escalation Decision Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to analyze the emails to decide if any responses should be escalated to a human operator based on their content."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        }
+      ]
+    },
+    {
+      "topic": "Text Extraction",
+      "question": "I have a research paper in PDF format, but the text is not selectable. Can you extract the content for me?",
+      "expected_answer": "Here are the extracted texts from the emails:\n\n1. Email ID 123: \"Please allow 3-5 business days for your order to arrive.\"\n2. Email ID 124: \"Your subscription will renew on the 15th of next month.\"",
+      "expected_agent_calls": "",
+      "latency": "8526.39 ms",
+      "Latencia": "",
+      "qtd_de_ativacoes": "",
+      "quais_ativacoes_foram_feitas": "",
+      "qtd_de_tokens": "",
+      "estimativa_de_custo": "",
+      "expected_activations": [
+        {
+          "agent_name": "text_extraction_agent",
+          "tool_result": {
+            "extracted_text": [
+              {
+                "paper_id": "A123",
+                "text": "Neural networks have significantly improved over the last decade..."
+              },
+              {
+                "paper_id": "B456",
+                "text": "Quantum computing leverages principles of superposition and entanglement..."
+              }
+            ]
+          }
+        }
+      ],
+      "activation_count": 12,
+      "activations_made": [
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Fetch new emails from the inbox (or a message queue), extract relevant text, and format data for further processing."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Email Ingestion Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to fetch new emails from the inbox to extract relevant text and format it for further processing according to the specified criteria."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Analyze each fetched email's tone and sentiment to determine urgency and required actions."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Sentiment Analysis Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to analyze the tone and sentiment of each email to determine urgency and required actions, which will help me classify each email based on its sentiment."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Query the knowledge base using the fetched emails to find relevant answers."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "FAQ Lookup Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to query the knowledge base for the relevant answers corresponding to the provided email IDs to meet the expectations of the task."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Decide whether to escalate the response to a human operator based on the analysis."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Escalation Decision Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to analyze the provided email responses to determine if any require escalation to a human operator based on their content."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        }
+      ]
+    },
+    {
+      "topic": "Summarization",
+      "question": "Can you summarize this 30-page research paper for me?",
+      "expected_answer": "Here is a summary of the recent inquiries:\n\n1. **Order Status:** You can expect your order to arrive within 3-5 business days.\n2. **Subscription Renewal:** Your subscription is set to renew on the 15th of next month.",
+      "expected_agent_calls": "",
+      "latency": "8695.44 ms",
+      "Latencia": "",
+      "qtd_de_ativacoes": "",
+      "quais_ativacoes_foram_feitas": "",
+      "qtd_de_tokens": "",
+      "estimativa_de_custo": "",
+      "expected_activations": [
+        {
+          "agent_name": "paper_crawler_agent",
+          "tool_result": {
+            "papers": [
+              {
+                "id": "A123",
+                "title": "Advancements in Neural Networks",
+                "source": "ArXiv",
+                "url": "https://arxiv.org/abs/1234.56789"
+              },
+              {
+                "id": "B456",
+                "title": "Quantum Computing: A New Era",
+                "source": "Google Scholar",
+                "url": "https://scholar.google.com/scholar?q=Quantum+Computing"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "text_extraction_agent",
+          "tool_result": {
+            "extracted_text": [
+              {
+                "paper_id": "A123",
+                "text": "Neural networks have significantly improved over the last decade..."
+              },
+              {
+                "paper_id": "B456",
+                "text": "Quantum computing leverages principles of superposition and entanglement..."
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "summarization_agent",
+          "tool_result": {
+            "summaries": [
+              {
+                "paper_id": "A123",
+                "summary": "This paper discusses recent advancements in neural networks, highlighting key breakthroughs."
+              },
+              {
+                "paper_id": "B456",
+                "summary": "An overview of quantum computing, explaining fundamental principles and future implications."
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "report_generator_agent",
+          "tool_result": {
+            "report": {
+              "title": "Weekly Research Highlights",
+              "entries": [
+                {
+                  "paper_id": "A123",
+                  "title": "Advancements in Neural Networks",
+                  "summary": "This paper discusses recent advancements in neural networks, highlighting key breakthroughs.",
+                  "topics": [
+                    "Artificial Intelligence",
+                    "Deep Learning"
+                  ]
+                },
+                {
+                  "paper_id": "B456",
+                  "title": "Quantum Computing: A New Era",
+                  "summary": "An overview of quantum computing, explaining fundamental principles and future implications.",
+                  "topics": [
+                    "Quantum Computing",
+                    "Theoretical Physics"
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "activation_count": 12,
+      "activations_made": [
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Fetch new emails from the inbox (or a message queue), extract relevant text, and format data for further processing."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Email Ingestion Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to fetch new emails from the inbox to get the relevant data structured in a list for further processing."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Analyze each fetched email's tone and sentiment to determine urgency and required actions."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Sentiment Analysis Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to analyze the sentiment of the fetched emails to categorize each email based on its tone and urgency."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Query the knowledge base using the fetched emails to find relevant answers."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "FAQ Lookup Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to query the knowledge base with the provided email IDs to find relevant answers that match each email ID."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Decide whether to escalate the response to a human operator based on the analysis."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Escalation Decision Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to analyze the provided email responses to determine if any of them warrant escalation to a human operator. Based on standard practices, I will look for responses that may need further clarifications or those that seem more complex and require human oversight."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        }
+      ]
+    },
+    {
+      "topic": "Topic Classification",
+      "question": "What category does this paper on reinforcement learning belong to?",
+      "expected_answer": "The topic classification for the provided task results indicates two main categories:\n\n1. **Order Inquiry**: Related to shipping and delivery times, as seen in the response regarding the order arrival timeframe.\n2. **Subscription Inquiry**: Pertaining to subscription renewal details, as indicated in the response about the renewal date.",
+      "expected_agent_calls": "",
+      "latency": "14321.86 ms",
+      "Latencia": "",
+      "qtd_de_ativacoes": "",
+      "quais_ativacoes_foram_feitas": "",
+      "qtd_de_tokens": "",
+      "estimativa_de_custo": "",
+      "expected_activations": [
+        {
+          "agent_name": "topic_classifier_agent",
+          "tool_result": {
+            "classification": [
+              {
+                "paper_id": "A123",
+                "topics": [
+                  "Artificial Intelligence",
+                  "Deep Learning"
+                ]
+              },
+              {
+                "paper_id": "B456",
+                "topics": [
+                  "Quantum Computing",
+                  "Theoretical Physics"
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "activation_count": 12,
+      "activations_made": [
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Fetch new emails from the inbox (or a message queue), extract relevant text, and format data for further processing."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Email Ingestion Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to fetch new emails from the inbox in order to extract relevant text and format the data for further processing as specified in the criteria."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Analyze each fetched email's tone and sentiment to determine urgency and required actions."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Sentiment Analysis Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to analyze the tone and sentiment of the provided emails to determine their urgency and classify the required actions."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Query the knowledge base using the fetched emails to find relevant answers."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "FAQ Lookup Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to query the knowledge base with the provided email IDs to find relevant answers and return them in a list mapped to each email's ID."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Decide whether to escalate the response to a human operator based on the analysis."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Escalation Decision Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to analyze the provided email responses to determine if they should be escalated to a human operator. I will use the Escalation Decision Tool for this task."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        }
+      ]
+    },
+    {
+      "topic": "Report Generation",
+      "question": "Can you generate a weekly report of the top 10 research papers in NLP?",
+      "expected_answer": "**Report Summary:**  \n- **Inquiries Escalated:** None  \n- **Context for Human Agents:**  \n  1. Email ID: 123 - Response: \"Please allow 3-5 business days for your order to arrive.\"  \n  2. Email ID: 124 - Response: \"Your subscription will renew on the 15th of next month.\"  \n\nIf you need further assistance or additional details, please let me know!",
+      "expected_agent_calls": "",
+      "latency": "11889.38 ms",
+      "Latencia": "",
+      "qtd_de_ativacoes": "",
+      "quais_ativacoes_foram_feitas": "",
+      "qtd_de_tokens": "",
+      "estimativa_de_custo": "",
+      "expected_activations": [
+        {
+          "agent_name": "paper_crawler_agent",
+          "tool_result": {
+            "papers": [
+              {
+                "id": "A123",
+                "title": "Advancements in Neural Networks",
+                "source": "ArXiv",
+                "url": "https://arxiv.org/abs/1234.56789"
+              },
+              {
+                "id": "B456",
+                "title": "Quantum Computing: A New Era",
+                "source": "Google Scholar",
+                "url": "https://scholar.google.com/scholar?q=Quantum+Computing"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "text_extraction_agent",
+          "tool_result": {
+            "extracted_text": [
+              {
+                "paper_id": "A123",
+                "text": "Neural networks have significantly improved over the last decade..."
+              },
+              {
+                "paper_id": "B456",
+                "text": "Quantum computing leverages principles of superposition and entanglement..."
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "summarization_agent",
+          "tool_result": {
+            "summaries": [
+              {
+                "paper_id": "A123",
+                "summary": "This paper discusses recent advancements in neural networks, highlighting key breakthroughs."
+              },
+              {
+                "paper_id": "B456",
+                "summary": "An overview of quantum computing, explaining fundamental principles and future implications."
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "topic_classifier_agent",
+          "tool_result": {
+            "classification": [
+              {
+                "paper_id": "A123",
+                "topics": [
+                  "Artificial Intelligence",
+                  "Deep Learning"
+                ]
+              },
+              {
+                "paper_id": "B456",
+                "topics": [
+                  "Quantum Computing",
+                  "Theoretical Physics"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "report_generator_agent",
+          "tool_result": {
+            "report": {
+              "title": "Weekly Research Highlights",
+              "entries": [
+                {
+                  "paper_id": "A123",
+                  "title": "Advancements in Neural Networks",
+                  "summary": "This paper discusses recent advancements in neural networks, highlighting key breakthroughs.",
+                  "topics": [
+                    "Artificial Intelligence",
+                    "Deep Learning"
+                  ]
+                },
+                {
+                  "paper_id": "B456",
+                  "title": "Quantum Computing: A New Era",
+                  "summary": "An overview of quantum computing, explaining fundamental principles and future implications.",
+                  "topics": [
+                    "Quantum Computing",
+                    "Theoretical Physics"
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "activation_count": 12,
+      "activations_made": [
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Fetch new emails from the inbox (or a message queue), extract relevant text, and format data for further processing."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Email Ingestion Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to fetch new emails from the specified inbox source to extract relevant text and format the data for further processing as required."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Analyze each fetched email's tone and sentiment to determine urgency and required actions."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Sentiment Analysis Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to analyze the tone and sentiment of the provided emails to determine their urgency and required actions."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Query the knowledge base using the fetched emails to find relevant answers."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "FAQ Lookup Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to query the knowledge base using the provided email IDs to find relevant answers and ensure the final answer adheres to the expected criteria."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Decide whether to escalate the response to a human operator based on the analysis."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Escalation Decision Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to analyze the emails to determine if any responses should be escalated to a human operator."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        }
+      ]
+    },
+    {
+      "topic": "Process Flow",
+      "question": "How does your system process a new research paper from discovery to report generation?",
+      "expected_answer": "The process flow for handling user inquiries includes the following steps:\n\n1. **Order Inquiry:** For order-related questions, users are informed that they should allow 3-5 business days for their order to arrive.\n   - **Email ID:** 123\n   - **Response:** \"Please allow 3-5 business days for your order to arrive.\"\n\n2. **Subscription Inquiry:** For subscription-related questions, users are notified of the renewal date.\n   - **Email ID:** 124\n   - **Response:** \"Your subscription will renew on the 15th of next month.\"\n\nNo escalation is needed for these inquiries.",
+      "expected_agent_calls": "",
+      "latency": "9583.92 ms",
+      "Latencia": "",
+      "qtd_de_ativacoes": "",
+      "quais_ativacoes_foram_feitas": "",
+      "qtd_de_tokens": "",
+      "estimativa_de_custo": "",
+      "expected_activations": [
+        {
+          "agent_name": "paper_crawler_agent",
+          "tool_result": {
+            "papers": [
+              {
+                "id": "A123",
+                "title": "Advancements in Neural Networks",
+                "source": "ArXiv",
+                "url": "https://arxiv.org/abs/1234.56789"
+              },
+              {
+                "id": "B456",
+                "title": "Quantum Computing: A New Era",
+                "source": "Google Scholar",
+                "url": "https://scholar.google.com/scholar?q=Quantum+Computing"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "text_extraction_agent",
+          "tool_result": {
+            "extracted_text": [
+              {
+                "paper_id": "A123",
+                "text": "Neural networks have significantly improved over the last decade..."
+              },
+              {
+                "paper_id": "B456",
+                "text": "Quantum computing leverages principles of superposition and entanglement..."
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "summarization_agent",
+          "tool_result": {
+            "summaries": [
+              {
+                "paper_id": "A123",
+                "summary": "This paper discusses recent advancements in neural networks, highlighting key breakthroughs."
+              },
+              {
+                "paper_id": "B456",
+                "summary": "An overview of quantum computing, explaining fundamental principles and future implications."
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "topic_classifier_agent",
+          "tool_result": {
+            "classification": [
+              {
+                "paper_id": "A123",
+                "topics": [
+                  "Artificial Intelligence",
+                  "Deep Learning"
+                ]
+              },
+              {
+                "paper_id": "B456",
+                "topics": [
+                  "Quantum Computing",
+                  "Theoretical Physics"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "report_generator_agent",
+          "tool_result": {
+            "report": {
+              "title": "Weekly Research Highlights",
+              "entries": [
+                {
+                  "paper_id": "A123",
+                  "title": "Advancements in Neural Networks",
+                  "summary": "This paper discusses recent advancements in neural networks, highlighting key breakthroughs.",
+                  "topics": [
+                    "Artificial Intelligence",
+                    "Deep Learning"
+                  ]
+                },
+                {
+                  "paper_id": "B456",
+                  "title": "Quantum Computing: A New Era",
+                  "summary": "An overview of quantum computing, explaining fundamental principles and future implications.",
+                  "topics": [
+                    "Quantum Computing",
+                    "Theoretical Physics"
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "activation_count": 12,
+      "activations_made": [
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Fetch new emails from the inbox (or a message queue), extract relevant text, and format data for further processing."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Email Ingestion Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to start by fetching new emails from the inbox to gather the relevant information. Once I have the emails, I can extract the subject and body content and format them for further processing."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Analyze each fetched email's tone and sentiment to determine urgency and required actions."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Sentiment Analysis Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to analyze the tone and sentiment of the provided emails to determine their urgency and required actions. I have the emails ready for analysis, so I'll proceed with that task."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Query the knowledge base using the fetched emails to find relevant answers."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "FAQ Lookup Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to query the knowledge base using the provided email IDs to find relevant answers that match each email ID."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Decide whether to escalate the response to a human operator based on the analysis."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Escalation Decision Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to analyze the emails to decide whether to escalate the responses to a human operator. This will help determine which inquiries should be handled by a human agent."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        }
+      ]
+    },
+    {
+      "topic": "Error Handling",
+      "question": "I tried extracting text from a PDF, but it returned gibberish. What should I do?",
+      "expected_answer": "To effectively handle errors in customer communications, it's important to ensure that responses are clear and informative. In the provided context:\n\n1. For Email ID 123, the response regarding order delivery is straightforward, advising the customer to expect their order within 3-5 business days.\n2. For Email ID 124, the subscription renewal date is clearly stated, which helps manage customer expectations.\n\nNo inquiries were escalated, indicating that the responses were satisfactory and addressed the customers' needs appropriately. Always ensure that responses are timely and provide the necessary information to prevent confusion.",
+      "expected_agent_calls": "",
+      "latency": "8141.28 ms",
+      "Latencia": "",
+      "qtd_de_ativacoes": "",
+      "quais_ativacoes_foram_feitas": "",
+      "qtd_de_tokens": "",
+      "estimativa_de_custo": "",
+      "expected_activations": [
+        {
+          "agent_name": "text_extraction_agent",
+          "tool_result": {
+            "extracted_text": [
+              {
+                "paper_id": "A123",
+                "text": "Neural networks have significantly improved over the last decade..."
+              },
+              {
+                "paper_id": "B456",
+                "text": "Quantum computing leverages principles of superposition and entanglement..."
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "summarization_agent",
+          "tool_result": {
+            "summaries": [
+              {
+                "paper_id": "A123",
+                "summary": "This paper discusses recent advancements in neural networks, highlighting key breakthroughs."
+              },
+              {
+                "paper_id": "B456",
+                "summary": "An overview of quantum computing, explaining fundamental principles and future implications."
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "report_generator_agent",
+          "tool_result": {
+            "report": {
+              "title": "Weekly Research Highlights",
+              "entries": [
+                {
+                  "paper_id": "A123",
+                  "title": "Advancements in Neural Networks",
+                  "summary": "This paper discusses recent advancements in neural networks, highlighting key breakthroughs.",
+                  "topics": [
+                    "Artificial Intelligence",
+                    "Deep Learning"
+                  ]
+                },
+                {
+                  "paper_id": "B456",
+                  "title": "Quantum Computing: A New Era",
+                  "summary": "An overview of quantum computing, explaining fundamental principles and future implications.",
+                  "topics": [
+                    "Quantum Computing",
+                    "Theoretical Physics"
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "activation_count": 12,
+      "activations_made": [
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Fetch new emails from the inbox (or a message queue), extract relevant text, and format data for further processing."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Email Ingestion Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to fetch the new emails from the inbox to extract relevant text and format it accordingly for further processing."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Analyze each fetched email's tone and sentiment to determine urgency and required actions."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Sentiment Analysis Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Query the knowledge base using the fetched emails to find relevant answers."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "FAQ Lookup Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to query the knowledge base with the provided email IDs to find relevant answers for each."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Decide whether to escalate the response to a human operator based on the analysis."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Escalation Decision Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to analyze the email responses to decide whether they require escalation to a human operator."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        }
+      ]
+    },
+    {
+      "topic": "Scalability",
+      "question": "Can your system handle thousands of research papers per day?",
+      "expected_answer": "**Summary of Inquiries:**\n\n1. **Email ID 123:** \"Please allow 3-5 business days for your order to arrive.\"\n2. **Email ID 124:** \"Your subscription will renew on the 15th of next month.\"\n\n**Conclusion:** No inquiries required escalation as all questions were addressed satisfactorily.",
+      "expected_agent_calls": "",
+      "latency": "10012.54 ms",
+      "Latencia": "",
+      "qtd_de_ativacoes": "",
+      "quais_ativacoes_foram_feitas": "",
+      "qtd_de_tokens": "",
+      "estimativa_de_custo": "",
+      "expected_activations": [
+        {
+          "agent_name": "paper_crawler_agent",
+          "tool_result": {
+            "papers": [
+              {
+                "id": "A123",
+                "title": "Advancements in Neural Networks",
+                "source": "ArXiv",
+                "url": "https://arxiv.org/abs/1234.56789"
+              },
+              {
+                "id": "B456",
+                "title": "Quantum Computing: A New Era",
+                "source": "Google Scholar",
+                "url": "https://scholar.google.com/scholar?q=Quantum+Computing"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "text_extraction_agent",
+          "tool_result": {
+            "extracted_text": [
+              {
+                "paper_id": "A123",
+                "text": "Neural networks have significantly improved over the last decade..."
+              },
+              {
+                "paper_id": "B456",
+                "text": "Quantum computing leverages principles of superposition and entanglement..."
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "summarization_agent",
+          "tool_result": {
+            "summaries": [
+              {
+                "paper_id": "A123",
+                "summary": "This paper discusses recent advancements in neural networks, highlighting key breakthroughs."
+              },
+              {
+                "paper_id": "B456",
+                "summary": "An overview of quantum computing, explaining fundamental principles and future implications."
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "topic_classifier_agent",
+          "tool_result": {
+            "classification": [
+              {
+                "paper_id": "A123",
+                "topics": [
+                  "Artificial Intelligence",
+                  "Deep Learning"
+                ]
+              },
+              {
+                "paper_id": "B456",
+                "topics": [
+                  "Quantum Computing",
+                  "Theoretical Physics"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "report_generator_agent",
+          "tool_result": {
+            "report": {
+              "title": "Weekly Research Highlights",
+              "entries": [
+                {
+                  "paper_id": "A123",
+                  "title": "Advancements in Neural Networks",
+                  "summary": "This paper discusses recent advancements in neural networks, highlighting key breakthroughs.",
+                  "topics": [
+                    "Artificial Intelligence",
+                    "Deep Learning"
+                  ]
+                },
+                {
+                  "paper_id": "B456",
+                  "title": "Quantum Computing: A New Era",
+                  "summary": "An overview of quantum computing, explaining fundamental principles and future implications.",
+                  "topics": [
+                    "Quantum Computing",
+                    "Theoretical Physics"
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "activation_count": 12,
+      "activations_made": [
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Fetch new emails from the inbox (or a message queue), extract relevant text, and format data for further processing."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Email Ingestion Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to fetch new emails from the inbox to extract relevant text and format the data for further processing, as specified in the task."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Analyze each fetched email's tone and sentiment to determine urgency and required actions."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Sentiment Analysis Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to analyze the tone and sentiment of the given emails to determine their urgency and required actions. This will help in classifying each email according to its sentiment."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Query the knowledge base using the fetched emails to find relevant answers."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "FAQ Lookup Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to query the knowledge base using the provided email IDs to find relevant answers for each ID."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Decide whether to escalate the response to a human operator based on the analysis."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Escalation Decision Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to analyze the provided email responses to determine if they should be escalated to a human operator based on the criteria set for escalation."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        }
+      ]
+    },
+    {
+      "topic": "Enhancements",
+      "question": "How can I improve the accuracy of topic classification for my research papers?",
+      "expected_answer": "The enhancements made to the response system have proven effective, as all inquiries were addressed without the need for human escalation. For your reference:\n\n1. **Order Inquiry:** \"Please allow 3-5 business days for your order to arrive.\"\n2. **Subscription Inquiry:** \"Your subscription will renew on the 15th of next month.\" \n\nThese responses were clear and satisfactory.",
+      "expected_agent_calls": "",
+      "latency": "8288.93 ms",
+      "Latencia": "",
+      "qtd_de_ativacoes": "",
+      "quais_ativacoes_foram_feitas": "",
+      "qtd_de_tokens": "",
+      "estimativa_de_custo": "",
+      "expected_activations": [
+        {
+          "agent_name": "topic_classifier_agent",
+          "tool_result": {
+            "classification": [
+              {
+                "paper_id": "A123",
+                "topics": [
+                  "Artificial Intelligence",
+                  "Deep Learning"
+                ]
+              },
+              {
+                "paper_id": "B456",
+                "topics": [
+                  "Quantum Computing",
+                  "Theoretical Physics"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "paper_crawler_agent",
+          "tool_result": {
+            "papers": [
+              {
+                "id": "A123",
+                "title": "Advancements in Neural Networks",
+                "source": "ArXiv",
+                "url": "https://arxiv.org/abs/1234.56789"
+              },
+              {
+                "id": "B456",
+                "title": "Quantum Computing: A New Era",
+                "source": "Google Scholar",
+                "url": "https://scholar.google.com/scholar?q=Quantum+Computing"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "text_extraction_agent",
+          "tool_result": {
+            "extracted_text": [
+              {
+                "paper_id": "A123",
+                "text": "Neural networks have significantly improved over the last decade..."
+              },
+              {
+                "paper_id": "B456",
+                "text": "Quantum computing leverages principles of superposition and entanglement..."
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "summarization_agent",
+          "tool_result": {
+            "summaries": [
+              {
+                "paper_id": "A123",
+                "summary": "This paper discusses recent advancements in neural networks, highlighting key breakthroughs."
+              },
+              {
+                "paper_id": "B456",
+                "summary": "An overview of quantum computing, explaining fundamental principles and future implications."
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "report_generator_agent",
+          "tool_result": {
+            "report": {
+              "title": "Weekly Research Highlights",
+              "entries": [
+                {
+                  "paper_id": "A123",
+                  "title": "Advancements in Neural Networks",
+                  "summary": "This paper discusses recent advancements in neural networks, highlighting key breakthroughs.",
+                  "topics": [
+                    "Artificial Intelligence",
+                    "Deep Learning"
+                  ]
+                },
+                {
+                  "paper_id": "B456",
+                  "title": "Quantum Computing: A New Era",
+                  "summary": "An overview of quantum computing, explaining fundamental principles and future implications.",
+                  "topics": [
+                    "Quantum Computing",
+                    "Theoretical Physics"
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "activation_count": 12,
+      "activations_made": [
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Fetch new emails from the inbox (or a message queue), extract relevant text, and format data for further processing."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Email Ingestion Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to initiate the process of fetching new emails from the inbox to extract relevant text and format data accordingly."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Analyze each fetched email's tone and sentiment to determine urgency and required actions."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Sentiment Analysis Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to analyze the tone and sentiment of each email to determine urgency and required actions."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Query the knowledge base using the fetched emails to find relevant answers."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "FAQ Lookup Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to query the knowledge base using the provided email IDs to find relevant answers."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Decide whether to escalate the response to a human operator based on the analysis."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Escalation Decision Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to analyze the responses from the emails provided to determine if they warrant escalation to a human operator."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        }
+      ]
+    },
+    {
+      "topic": "Customization",
+      "question": "Can I configure the system to prioritize papers from specific journals or conferences?",
+      "expected_answer": "To customize your experience, please note the following:\n\n1. **Order Delivery:** You can expect your order to arrive within 3-5 business days.\n2. **Subscription Renewal:** Your subscription is set to renew on the 15th of next month.\n\nIf you have any specific customization requests or further questions, feel free to ask!",
+      "expected_agent_calls": "",
+      "latency": "9545.04 ms",
+      "Latencia": "",
+      "qtd_de_ativacoes": "",
+      "quais_ativacoes_foram_feitas": "",
+      "qtd_de_tokens": "",
+      "estimativa_de_custo": "",
+      "expected_activations": [
+        {
+          "agent_name": "paper_crawler_agent",
+          "tool_result": {
+            "papers": [
+              {
+                "id": "A123",
+                "title": "Advancements in Neural Networks",
+                "source": "ArXiv",
+                "url": "https://arxiv.org/abs/1234.56789"
+              },
+              {
+                "id": "B456",
+                "title": "Quantum Computing: A New Era",
+                "source": "Google Scholar",
+                "url": "https://scholar.google.com/scholar?q=Quantum+Computing"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "text_extraction_agent",
+          "tool_result": {
+            "extracted_text": [
+              {
+                "paper_id": "A123",
+                "text": "Neural networks have significantly improved over the last decade..."
+              },
+              {
+                "paper_id": "B456",
+                "text": "Quantum computing leverages principles of superposition and entanglement..."
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "topic_classifier_agent",
+          "tool_result": {
+            "classification": [
+              {
+                "paper_id": "A123",
+                "topics": [
+                  "Artificial Intelligence",
+                  "Deep Learning"
+                ]
+              },
+              {
+                "paper_id": "B456",
+                "topics": [
+                  "Quantum Computing",
+                  "Theoretical Physics"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "summarization_agent",
+          "tool_result": {
+            "summaries": [
+              {
+                "paper_id": "A123",
+                "summary": "This paper discusses recent advancements in neural networks, highlighting key breakthroughs."
+              },
+              {
+                "paper_id": "B456",
+                "summary": "An overview of quantum computing, explaining fundamental principles and future implications."
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "report_generator_agent",
+          "tool_result": {
+            "report": {
+              "title": "Weekly Research Highlights",
+              "entries": [
+                {
+                  "paper_id": "A123",
+                  "title": "Advancements in Neural Networks",
+                  "summary": "This paper discusses recent advancements in neural networks, highlighting key breakthroughs.",
+                  "topics": [
+                    "Artificial Intelligence",
+                    "Deep Learning"
+                  ]
+                },
+                {
+                  "paper_id": "B456",
+                  "title": "Quantum Computing: A New Era",
+                  "summary": "An overview of quantum computing, explaining fundamental principles and future implications.",
+                  "topics": [
+                    "Quantum Computing",
+                    "Theoretical Physics"
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "activation_count": 12,
+      "activations_made": [
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Fetch new emails from the inbox (or a message queue), extract relevant text, and format data for further processing."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Email Ingestion Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to start by fetching new emails from the inbox to gather the relevant information necessary for processing. This will ensure that I have access to all the emails, which I can then format into a structured list according to the specified criteria."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Analyze each fetched email's tone and sentiment to determine urgency and required actions."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Sentiment Analysis Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to analyze the tone and sentiment of the provided emails to determine their urgency and required actions. This will be done using the Sentiment Analysis Tool."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Query the knowledge base using the fetched emails to find relevant answers."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "FAQ Lookup Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to query the knowledge base for the email IDs provided in order to find relevant answers specific to each email. The expected output is a list of responses that match each email ID."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Decide whether to escalate the response to a human operator based on the analysis."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Escalation Decision Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to evaluate the response to determine whether it should be escalated to a human operator based on the provided email analysis results."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        }
+      ]
+    }
+  ]
+}

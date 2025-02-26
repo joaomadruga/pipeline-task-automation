@@ -1,4 +1,4 @@
-from models.agent import Agent
+from agentcompiler.models.agent import Agent
 from langchain.prompts import ChatPromptTemplate
 import json
 from pathlib import Path

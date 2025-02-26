@@ -3,9 +3,9 @@
     {
       "topic": "Order Tracking",
       "question": "Hi, I placed an order last week, but it hasn't arrived yet. Can you help me track it?",
-      "expected_answer": "Hello! I see that you placed an order last week and are looking to track it. Based on the information retrieved:\n\n- **Response:** Please allow 3-5 business days for your order to arrive.\n\nIf you have any further questions or need additional assistance, feel free to ask!",
+      "expected_answer": "Hello! I found your email regarding your order inquiry. Here\u2019s the information I have:\n\n- **Order Status:** Please allow 3-5 business days for your order to arrive.\n\nIf you have any further questions or need additional assistance, feel free to ask!",
       "expected_agent_calls": "",
-      "latency": "6485.40 ms",
+      "latency": "6347.43 ms",
       "activation_count": "4",
       "activations_made": [
         {
@@ -119,9 +119,9 @@
     {
       "topic": "Subscription Inquiry",
       "question": "Hello, I have a question about my subscription renewal. Can you provide more details?",
-      "expected_answer": "Hello! Regarding your subscription renewal, your subscription will renew on the 15th of next month. If you have any further questions or need assistance, feel free to ask!",
+      "expected_answer": "Hello! Regarding your subscription renewal, I can confirm that your subscription will renew on the 15th of next month. If you have any further questions or need assistance, feel free to ask!",
       "expected_agent_calls": "",
-      "latency": "8385.05 ms",
+      "latency": "5835.38 ms",
       "activation_count": "4",
       "activations_made": [
         {
@@ -235,9 +235,9 @@
     {
       "topic": "Urgent Support Request",
       "question": "Hi, my user_id is 123. I've been trying to get in touch with customer support for 3 days now, and I'm not getting any response. Can you help me?",
-      "expected_answer": "Hello! I understand you've been trying to reach customer support without success. Here are the relevant emails I found:\n\n1. **Subject:** Need help with my order  \n   - **Response:** \"Please allow 3-5 business days for your order to arrive.\"\n\n2. **Subject:** Question about my subscription  \n   - **Response:** \"Your subscription will renew on the 15th of next month.\"\n\nThe first email is a straightforward request for assistance regarding an order, and the second is a friendly inquiry about a subscription. Since there are no urgent issues identified, I recommend waiting for the standard response time. If you need further assistance or wish to send these responses, please let me know!",
+      "expected_answer": "Hello! I understand you've been trying to reach customer support without success. Here are the relevant updates based on your inquiries:\n\n1. **Regarding your order:**  \n   - **Response:** \"Please allow 3-5 business days for your order to arrive.\"\n\n2. **About your subscription:**  \n   - **Response:** \"Your subscription will renew on the 15th of next month.\"\n\nThe emails related to your inquiries have been analyzed, and there are no urgent issues that require escalation to a human agent. If you would like to send these responses or need further assistance, please let me know!",
       "expected_agent_calls": "",
-      "latency": "5638.41 ms",
+      "latency": "5295.31 ms",
       "activation_count": "4",
       "activations_made": [
         {
@@ -351,9 +351,9 @@
     {
       "topic": "Refund Request",
       "question": "I want to request a refund for my last purchase. How can I proceed?",
-      "expected_answer": "To request a refund for your last purchase, please follow these steps:\n\n1. **Contact Customer Support:** You can reach out to the customer support team via email or through the contact form on the website. Include your order number and a brief explanation of why you are requesting a refund.\n\n2. **Provide Necessary Information:** Make sure to provide any relevant details such as your order ID, the date of purchase, and the reason for the refund request.\n\n3. **Wait for a Response:** After submitting your request, please allow 3-5 business days for the customer support team to process your request and get back to you.\n\nIf you have any further questions or need assistance with the process, feel free to ask!",
+      "expected_answer": "To request a refund for your last purchase, please follow these steps:\n\n1. **Check the Refund Policy:** Review the refund policy of the store where you made the purchase to ensure your request is eligible.\n\n2. **Contact Customer Support:** You can reach out to customer support via email or their website. Provide them with your order details and clearly state that you would like to request a refund.\n\n3. **Follow Up:** If you do not receive a response within a few days, consider following up on your request.\n\nIf you need further assistance or specific contact details for customer support, please let me know!",
       "expected_agent_calls": "",
-      "latency": "4295.36 ms",
+      "latency": "5336.22 ms",
       "activation_count": "3",
       "activations_made": [
         {
@@ -437,9 +437,9 @@
     {
       "topic": "Technical Issue",
       "question": "I'm having trouble logging into my account. Can you help me reset my password?",
-      "expected_answer": "To reset your password, please follow these steps:\n\n1. Go to the login page of the website.\n2. Click on the \"Forgot Password?\" link.\n3. Enter your registered email address and submit the form.\n4. Check your email inbox for a password reset link.\n5. Follow the instructions in the email to create a new password.\n\nIf you encounter any issues during this process, feel free to ask for further assistance!",
+      "expected_answer": "To reset your password, please follow these steps:\n\n1. Go to the login page of your account.\n2. Click on the \"Forgot Password?\" link.\n3. Enter your registered email address and submit the form.\n4. Check your email inbox for a password reset link. Make sure to check your spam folder if you don't see it.\n5. Follow the instructions in the email to create a new password.\n\nIf you encounter any issues during this process, feel free to ask for further assistance!",
       "expected_agent_calls": "",
-      "latency": "4008.85 ms",
+      "latency": "4111.42 ms",
       "activation_count": "3",
       "activations_made": [
         {
@@ -523,9 +523,9 @@
     {
       "topic": "Cancellation Request",
       "question": "I\u2019d like to cancel my subscription. What steps do I need to follow?",
-      "expected_answer": "To cancel your subscription, please follow these steps:\n\n1. **Log into your account** on our website.\n2. **Navigate to the 'Account Settings'** or 'Subscription' section.\n3. **Select 'Manage Subscription'** or 'Cancel Subscription'.\n4. **Follow the prompts** to confirm your cancellation.\n\nIf you encounter any issues or need further assistance, feel free to reach out to our support team.",
+      "expected_answer": "To cancel your subscription, please follow these steps:\n\n1. **Log into your account** on our website.\n2. **Navigate to the 'Account Settings'** or 'Subscriptions' section.\n3. **Select the option to manage your subscription.**\n4. **Choose 'Cancel Subscription'** and follow the prompts to confirm your cancellation.\n5. **Check your email** for a confirmation of the cancellation.\n\nIf you encounter any issues or need further assistance, feel free to reach out to our support team.",
       "expected_agent_calls": "",
-      "latency": "15096.28 ms",
+      "latency": "2458.49 ms",
       "activation_count": "3",
       "activations_made": [
         {
@@ -605,9 +605,9 @@
     {
       "topic": "Product Information",
       "question": "Can you tell me more details about the features of your premium plan?",
-      "expected_answer": "The premium plan offers a variety of features designed to enhance your experience. While I couldn't find specific details about the premium plan features in the knowledge base, I recommend checking your account settings or contacting customer support for comprehensive information. If you have any specific questions or need assistance with a particular feature, feel free to ask!",
+      "expected_answer": "The premium plan offers a variety of features designed to enhance your experience. Key features typically include:\n\n1. **Increased Storage**: Enjoy more space for your files and data.\n2. **Priority Support**: Get faster response times from our customer service team.\n3. **Advanced Security**: Benefit from enhanced security measures to protect your information.\n4. **Exclusive Content**: Access premium content and features not available in the basic plan.\n5. **Customization Options**: Tailor your experience with additional customization settings.\n\nIf you have specific features in mind or need further details, feel free to ask!",
       "expected_agent_calls": "",
-      "latency": "1499.38 ms",
+      "latency": "517.51 ms",
       "activation_count": "1",
       "activations_made": [
         {
@@ -649,9 +649,9 @@
     {
       "topic": "Payment Issue",
       "question": "I was charged twice for my last payment. How can I get a refund for the duplicate charge?",
-      "expected_answer": "To request a refund for the duplicate charge, please follow these steps:\n\n1. **Contact Customer Support:** Reach out to the customer support team of the service or company that charged you. You can usually find their contact information on their website.\n\n2. **Provide Details:** When you contact them, be sure to include:\n   - Your account information (if applicable)\n   - The transaction details (date, amount, and any reference numbers)\n   - A clear explanation that you were charged twice and are requesting a refund for the duplicate charge.\n\n3. **Follow Up:** If you do not receive a response within a few days, consider following up to ensure your request is being processed.\n\nIf you need further assistance or specific contact details, let me know!",
+      "expected_answer": "To request a refund for the duplicate charge, please follow these steps:\n\n1. **Contact Customer Support:** Reach out to the customer support team of the service or company that charged you. You can usually find their contact information on their website or in your account settings.\n\n2. **Provide Details:** When you contact them, be sure to include the following information:\n   - Your account details (e.g., email address associated with the account).\n   - The date and amount of the duplicate charge.\n   - Any relevant transaction IDs or receipts.\n\n3. **Request a Refund:** Clearly state that you were charged twice and request a refund for the duplicate payment.\n\n4. **Follow Up:** If you do not receive a response within a few days, consider following up to ensure your request is being processed.\n\nIf you need further assistance or specific contact details, let me know!",
       "expected_agent_calls": "",
-      "latency": "6773.77 ms",
+      "latency": "5456.37 ms",
       "activation_count": "4",
       "activations_made": [
         {
@@ -765,9 +765,9 @@
     {
       "topic": "Service Downtime",
       "question": "Is there an issue with your service? I can\u2019t access my dashboard right now.",
-      "expected_answer": "It appears that there are no urgent issues with our service based on the recent emails received. The emails fetched indicate that users are inquiring about their orders and subscriptions, but their sentiments are neutral and positive, suggesting no immediate concerns regarding dashboard access. \n\nIf you're still experiencing issues accessing your dashboard, please let me know, and I can assist you further!",
+      "expected_answer": "It appears that there are no urgent issues with our service based on the recent emails received. Here are the relevant findings:\n\n1. **Email about Order:** The user inquired about an order that hasn't arrived yet. The response generated is: \"Please allow 3-5 business days for your order to arrive.\"\n\n2. **Email about Subscription:** Another user had a question regarding their subscription renewal, and the response is: \"Your subscription will renew on the 15th of next month.\"\n\nBoth emails have neutral or positive sentiments, indicating that there are no immediate concerns regarding dashboard access. If you are still unable to access your dashboard, please let me know, and I can assist you further!",
       "expected_agent_calls": "",
-      "latency": "9565.27 ms",
+      "latency": "6852.40 ms",
       "activation_count": "4",
       "activations_made": [
         {
@@ -881,9 +881,9 @@
     {
       "topic": "Shipping Inquiry",
       "question": "I need to update the shipping address for my recent order. Can you help?",
-      "expected_answer": "To update the shipping address for your recent order, please follow these steps:\n\n1. **Locate Your Order:** Check your order confirmation email for details about your order.\n2. **Contact Customer Support:** Reply to the email you received regarding your order or reach out to customer support directly through their website or phone number.\n3. **Provide New Address:** Clearly state your new shipping address in your message.\n\nIf you need further assistance or have any specific details to share, feel free to let me know!",
+      "expected_answer": "To update the shipping address for your recent order, please follow these steps:\n\n1. **Locate Your Order:** Check your order confirmation email for details about your order.\n2. **Contact Customer Support:** Reply to the email you received regarding your order or reach out to customer support directly through their website or phone number.\n3. **Provide New Address:** Clearly state your new shipping address in your message.\n\nIf you need further assistance or have specific details about your order, feel free to ask!",
       "expected_agent_calls": "",
-      "latency": "4098.74 ms",
+      "latency": "3751.41 ms",
       "activation_count": "3",
       "activations_made": [
         {

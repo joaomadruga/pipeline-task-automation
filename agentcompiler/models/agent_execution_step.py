@@ -1,7 +1,7 @@
 from pydantic import BaseModel, Field, validator
 from enum import Enum
 from typing import Type
-from utils import load_agents
+from agentcompiler.utils import load_agents
 import os
 
 AVAILABLE_MODELS = load_agents(os.getenv("AGENTS_FILE_NAME"))

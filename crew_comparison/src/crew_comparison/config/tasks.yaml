@@ -1,0 +1,28 @@
+email_ingestion_task:
+  description: >
+    Fetch new emails from the inbox (or a message queue), extract relevant text,
+    and format data for further processing.
+  expected_output: >
+    A structured list of relevant emails ready for processing, including subject and body.
+  agent: email_ingestion_agent
+
+sentiment_analysis_task:
+  description: >
+    Analyze each fetched email's tone and sentiment to determine urgency and required actions.
+  expected_output: >
+    A list with each email's ID and its corresponding sentiment classification.
+  agent: sentiment_analysis_agent
+
+faq_search_task:
+  description: >
+    Query the knowledge base using the fetched emails to find relevant answers.
+  expected_output: >
+    A list of responses mapped to each email's ID when a match is found.
+  agent: faq_knowledge_base_agent
+
+escalation_decision_task:
+  description: >
+    Decide whether to escalate the response to a human operator based on the analysis.
+  expected_output: >
+    A structured summary indicating which inquiries were escalated and the context for human agents.
+  agent: escalation_agent

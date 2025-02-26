@@ -8,8 +8,8 @@ from pathlib import Path
 load_dotenv()
 os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
 
-from compiler import AgentCompiler
-from orchestrator import OrchestratorAgent
+from agentcompiler.compiler import AgentCompiler
+from agentcompiler.orchestrator import OrchestratorAgent
 
 def update_test_case_results(test_case, answer, agent_calls, latency, activation_count, activations_made, token_count, cost_estimate):
     test_case["expected_answer"] = str(answer)

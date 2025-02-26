@@ -1,8 +1,8 @@
-from models.agent import Agent
-from models.orchestrator import OrchestrationPlan, OrchestratorFinalAnswer
-from utils import load_agents
+from agentcompiler.models.agent import Agent
+from agentcompiler.models.orchestrator import OrchestrationPlan, OrchestratorFinalAnswer
+from agentcompiler.utils import load_agents
 from langchain_openai import ChatOpenAI
-from models.agent_execution_step import AgentExecuted
+from agentcompiler.models.agent_execution_step import AgentExecuted
 from langchain.prompts import ChatPromptTemplate
 import os
 

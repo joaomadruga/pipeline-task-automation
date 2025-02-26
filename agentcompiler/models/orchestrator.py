@@ -1,6 +1,6 @@
 from enum import Enum, IntEnum
 from pydantic import BaseModel, ValidationError, Field
-from models.agent_execution_step import AgentExecutionStep
+from agentcompiler.models.agent_execution_step import AgentExecutionStep
 from typing import Optional, List
 
 class CommunicationStructure(str, Enum):
