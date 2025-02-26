@@ -6,7 +6,8 @@ import re
 from io import StringIO
 from dotenv import load_dotenv
 from pathlib import Path
-from crew import CrewComparison
+from customer_support_crew import CustomerSupportCrew
+from research_crew import ResearchCrew
 from agentcompiler.orchestrator import OrchestratorAgent
 
 load_dotenv()
@@ -95,7 +96,8 @@ if __name__ == "__main__":
         sys.stdout = StringIO()
 
         start = time.perf_counter()
-        crew_comparison = CrewComparison()
+        # crew_comparison = CustomerSupportCrew()
+        crew_comparison = ResearchCrew()
         output = crew_comparison.crew().kickoff(inputs={'topic': task_description})
 
         execution_logs = sys.stdout.getvalue()  # Get all printed logs

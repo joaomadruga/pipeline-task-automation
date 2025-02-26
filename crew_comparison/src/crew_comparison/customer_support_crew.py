@@ -8,11 +8,11 @@ from langchain_openai import ChatOpenAI
 
 
 @CrewBase
-class CrewComparison():
-    """CrewComparison crew"""
+class CustomerSupportCrew():
+    """CustomerSupportCrew crew"""
 
-    agents_config = 'config/agents.yaml'
-    tasks_config = 'config/tasks.yaml'
+    agents_config = 'config/customer_support_agents.yaml'
+    tasks_config = 'config/customer_support_tasks.yaml'
 
     # Agent definitions
     @agent
@@ -75,7 +75,7 @@ class CrewComparison():
     # Crew definition
     @crew
     def crew(self) -> Crew:
-        """Creates the CrewComparison crew"""
+        """Creates the CustomerSupportCrew crew"""
         return Crew(
             agents=self.agents, # Automatically created by the @agent decorator
             tasks=self.tasks, # Automatically created by the @task decorator,

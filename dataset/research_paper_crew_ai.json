@@ -3,9 +3,9 @@
     {
       "topic": "Paper Retrieval",
       "question": "Where can I find the latest research papers on deep learning?",
-      "expected_answer": "To retrieve the requested paper, please allow 3-5 business days for your order to arrive. Additionally, if you are inquiring about a subscription, please note that it will renew on the 15th of next month.",
+      "expected_answer": "**Recent Research Highlights in Paper Retrieval**\n\n1. **Artificial Intelligence and Deep Learning**: Recent advancements in AI, particularly in deep learning algorithms, have shown significant improvements over traditional methods in areas such as image recognition and natural language processing. These technologies are transforming various industries by enhancing automation and data analysis capabilities.\n\n2. **Quantum Computing and Cryptography**: Ongoing research in Quantum Computing is yielding new algorithms that enhance computational efficiency. Additionally, innovations in cryptography leveraging quantum principles are improving security protocols, which is crucial for protecting data against emerging cyber threats.",
       "expected_agent_calls": "",
-      "latency": "11526.78 ms",
+      "latency": "25429.10 ms",
       "Latencia": "",
       "qtd_de_ativacoes": "",
       "quais_ativacoes_foram_feitas": "",
@@ -111,23 +111,23 @@
           }
         }
       ],
-      "activation_count": 12,
+      "activation_count": 23,
       "activations_made": [
         {
           "agent": "Crew Manager",
           "tools": [],
-          "task": "Fetch new emails from the inbox (or a message queue), extract relevant text, and format data for further processing."
+          "task": "Periodically crawls academic websites for new research papers based on specified topics."
         },
         {
           "agent": "Crew Manager",
           "tools": [
             {
-              "name": "Email Ingestion Tool",
+              "name": "Paper Crawler Tool",
               "input": "",
               "output": ""
             }
           ],
-          "thought": "I need to fetch new emails from the inbox to extract the relevant information, including the subject and body, and then format this data as required."
+          "thought": "I need to find newly published research papers on specified topics that can be included in a structured list, complete with titles, sources, and URLs. To start this process, I will use the Paper Crawler Tool to search academic websites for new papers based on relevant keywords."
         },
         {
           "agent": "Crew Manager",
@@ -137,18 +137,51 @@
         {
           "agent": "Crew Manager",
           "tools": [],
-          "task": "Analyze each fetched email's tone and sentiment to determine urgency and required actions."
+          "task": "Extracts and cleans the text content from the provided research paper documents."
         },
         {
           "agent": "Crew Manager",
           "tools": [
             {
-              "name": "Sentiment Analysis Tool",
+              "name": "Delegate work to coworker",
               "input": "",
               "output": ""
             }
           ],
-          "thought": "I need to analyze the tone and sentiment of the provided emails to determine their urgency and required actions."
+          "thought": "I need to extract text from the provided research papers using the URLs given. There are two papers to work with, and I will delegate tasks to extract text from both URLs."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Delegate work to coworker",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I will correct my delegation by specifying the correct role of the coworker."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Text Extraction Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "It appears there's an issue with delegating work to the coworker. I will first attempt to extract the text from the first document before moving to the next."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Text Extraction Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "Thought: I need to extract text from the second paper now, following the same approach used for the first paper."
         },
         {
           "agent": "Crew Manager",
@@ -158,18 +191,29 @@
         {
           "agent": "Crew Manager",
           "tools": [],
-          "task": "Query the knowledge base using the fetched emails to find relevant answers."
+          "task": "Generates summaries of the cleaned text for the extracted research papers."
         },
         {
           "agent": "Crew Manager",
           "tools": [
             {
-              "name": "FAQ Lookup Tool",
+              "name": "Delegate work to coworker",
               "input": "",
               "output": ""
             }
           ],
-          "thought": "I need to gather answers from the knowledge base using the provided email IDs. There are two email IDs to work with: '123' and '124'."
+          "thought": "To generate concise summaries based on the provided context of the research papers, I'll first need to summarize the content of each paper. I will delegate the task that matches what needs to be accomplished."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Summarization Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "Thought: I need to re-evaluate my approach to gathering summaries since the coworker I intended to delegate to isn't available. I'll instead use the summarization tool directly on the context provided to me."
         },
         {
           "agent": "Crew Manager",
@@ -179,944 +223,24 @@
         {
           "agent": "Crew Manager",
           "tools": [],
-          "task": "Decide whether to escalate the response to a human operator based on the analysis."
+          "task": "Classifies the papers into relevant subject areas based on the extracted text."
         },
         {
           "agent": "Crew Manager",
           "tools": [
             {
-              "name": "Escalation Decision Tool",
+              "name": "Topic Classifier Tool",
               "input": "",
               "output": ""
             }
           ],
-          "thought": "I need to analyze the emails to decide if any responses should be escalated to a human operator based on their content."
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [],
-          "final_answer": ""
-        }
-      ]
-    },
-    {
-      "topic": "Text Extraction",
-      "question": "I have a research paper in PDF format, but the text is not selectable. Can you extract the content for me?",
-      "expected_answer": "Here are the extracted texts from the emails:\n\n1. Email ID 123: \"Please allow 3-5 business days for your order to arrive.\"\n2. Email ID 124: \"Your subscription will renew on the 15th of next month.\"",
-      "expected_agent_calls": "",
-      "latency": "8526.39 ms",
-      "Latencia": "",
-      "qtd_de_ativacoes": "",
-      "quais_ativacoes_foram_feitas": "",
-      "qtd_de_tokens": "",
-      "estimativa_de_custo": "",
-      "expected_activations": [
-        {
-          "agent_name": "text_extraction_agent",
-          "tool_result": {
-            "extracted_text": [
-              {
-                "paper_id": "A123",
-                "text": "Neural networks have significantly improved over the last decade..."
-              },
-              {
-                "paper_id": "B456",
-                "text": "Quantum computing leverages principles of superposition and entanglement..."
-              }
-            ]
-          }
-        }
-      ],
-      "activation_count": 12,
-      "activations_made": [
-        {
-          "agent": "Crew Manager",
-          "tools": [],
-          "task": "Fetch new emails from the inbox (or a message queue), extract relevant text, and format data for further processing."
+          "thought": "I need to classify the two papers based on their content to identify relevant subject areas for each."
         },
         {
           "agent": "Crew Manager",
           "tools": [
             {
-              "name": "Email Ingestion Tool",
-              "input": "",
-              "output": ""
-            }
-          ],
-          "thought": "I need to fetch new emails from the inbox to extract relevant text and format it for further processing according to the specified criteria."
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [],
-          "final_answer": ""
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [],
-          "task": "Analyze each fetched email's tone and sentiment to determine urgency and required actions."
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [
-            {
-              "name": "Sentiment Analysis Tool",
-              "input": "",
-              "output": ""
-            }
-          ],
-          "thought": "I need to analyze the tone and sentiment of each email to determine urgency and required actions, which will help me classify each email based on its sentiment."
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [],
-          "final_answer": ""
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [],
-          "task": "Query the knowledge base using the fetched emails to find relevant answers."
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [
-            {
-              "name": "FAQ Lookup Tool",
-              "input": "",
-              "output": ""
-            }
-          ],
-          "thought": "I need to query the knowledge base for the relevant answers corresponding to the provided email IDs to meet the expectations of the task."
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [],
-          "final_answer": ""
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [],
-          "task": "Decide whether to escalate the response to a human operator based on the analysis."
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [
-            {
-              "name": "Escalation Decision Tool",
-              "input": "",
-              "output": ""
-            }
-          ],
-          "thought": "I need to analyze the provided email responses to determine if any require escalation to a human operator based on their content."
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [],
-          "final_answer": ""
-        }
-      ]
-    },
-    {
-      "topic": "Summarization",
-      "question": "Can you summarize this 30-page research paper for me?",
-      "expected_answer": "Here is a summary of the recent inquiries:\n\n1. **Order Status:** You can expect your order to arrive within 3-5 business days.\n2. **Subscription Renewal:** Your subscription is set to renew on the 15th of next month.",
-      "expected_agent_calls": "",
-      "latency": "8695.44 ms",
-      "Latencia": "",
-      "qtd_de_ativacoes": "",
-      "quais_ativacoes_foram_feitas": "",
-      "qtd_de_tokens": "",
-      "estimativa_de_custo": "",
-      "expected_activations": [
-        {
-          "agent_name": "paper_crawler_agent",
-          "tool_result": {
-            "papers": [
-              {
-                "id": "A123",
-                "title": "Advancements in Neural Networks",
-                "source": "ArXiv",
-                "url": "https://arxiv.org/abs/1234.56789"
-              },
-              {
-                "id": "B456",
-                "title": "Quantum Computing: A New Era",
-                "source": "Google Scholar",
-                "url": "https://scholar.google.com/scholar?q=Quantum+Computing"
-              }
-            ]
-          }
-        },
-        {
-          "agent_name": "text_extraction_agent",
-          "tool_result": {
-            "extracted_text": [
-              {
-                "paper_id": "A123",
-                "text": "Neural networks have significantly improved over the last decade..."
-              },
-              {
-                "paper_id": "B456",
-                "text": "Quantum computing leverages principles of superposition and entanglement..."
-              }
-            ]
-          }
-        },
-        {
-          "agent_name": "summarization_agent",
-          "tool_result": {
-            "summaries": [
-              {
-                "paper_id": "A123",
-                "summary": "This paper discusses recent advancements in neural networks, highlighting key breakthroughs."
-              },
-              {
-                "paper_id": "B456",
-                "summary": "An overview of quantum computing, explaining fundamental principles and future implications."
-              }
-            ]
-          }
-        },
-        {
-          "agent_name": "report_generator_agent",
-          "tool_result": {
-            "report": {
-              "title": "Weekly Research Highlights",
-              "entries": [
-                {
-                  "paper_id": "A123",
-                  "title": "Advancements in Neural Networks",
-                  "summary": "This paper discusses recent advancements in neural networks, highlighting key breakthroughs.",
-                  "topics": [
-                    "Artificial Intelligence",
-                    "Deep Learning"
-                  ]
-                },
-                {
-                  "paper_id": "B456",
-                  "title": "Quantum Computing: A New Era",
-                  "summary": "An overview of quantum computing, explaining fundamental principles and future implications.",
-                  "topics": [
-                    "Quantum Computing",
-                    "Theoretical Physics"
-                  ]
-                }
-              ]
-            }
-          }
-        }
-      ],
-      "activation_count": 12,
-      "activations_made": [
-        {
-          "agent": "Crew Manager",
-          "tools": [],
-          "task": "Fetch new emails from the inbox (or a message queue), extract relevant text, and format data for further processing."
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [
-            {
-              "name": "Email Ingestion Tool",
-              "input": "",
-              "output": ""
-            }
-          ],
-          "thought": "I need to fetch new emails from the inbox to get the relevant data structured in a list for further processing."
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [],
-          "final_answer": ""
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [],
-          "task": "Analyze each fetched email's tone and sentiment to determine urgency and required actions."
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [
-            {
-              "name": "Sentiment Analysis Tool",
-              "input": "",
-              "output": ""
-            }
-          ],
-          "thought": "I need to analyze the sentiment of the fetched emails to categorize each email based on its tone and urgency."
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [],
-          "final_answer": ""
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [],
-          "task": "Query the knowledge base using the fetched emails to find relevant answers."
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [
-            {
-              "name": "FAQ Lookup Tool",
-              "input": "",
-              "output": ""
-            }
-          ],
-          "thought": "I need to query the knowledge base with the provided email IDs to find relevant answers that match each email ID."
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [],
-          "final_answer": ""
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [],
-          "task": "Decide whether to escalate the response to a human operator based on the analysis."
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [
-            {
-              "name": "Escalation Decision Tool",
-              "input": "",
-              "output": ""
-            }
-          ],
-          "thought": "I need to analyze the provided email responses to determine if any of them warrant escalation to a human operator. Based on standard practices, I will look for responses that may need further clarifications or those that seem more complex and require human oversight."
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [],
-          "final_answer": ""
-        }
-      ]
-    },
-    {
-      "topic": "Topic Classification",
-      "question": "What category does this paper on reinforcement learning belong to?",
-      "expected_answer": "The topic classification for the provided task results indicates two main categories:\n\n1. **Order Inquiry**: Related to shipping and delivery times, as seen in the response regarding the order arrival timeframe.\n2. **Subscription Inquiry**: Pertaining to subscription renewal details, as indicated in the response about the renewal date.",
-      "expected_agent_calls": "",
-      "latency": "14321.86 ms",
-      "Latencia": "",
-      "qtd_de_ativacoes": "",
-      "quais_ativacoes_foram_feitas": "",
-      "qtd_de_tokens": "",
-      "estimativa_de_custo": "",
-      "expected_activations": [
-        {
-          "agent_name": "topic_classifier_agent",
-          "tool_result": {
-            "classification": [
-              {
-                "paper_id": "A123",
-                "topics": [
-                  "Artificial Intelligence",
-                  "Deep Learning"
-                ]
-              },
-              {
-                "paper_id": "B456",
-                "topics": [
-                  "Quantum Computing",
-                  "Theoretical Physics"
-                ]
-              }
-            ]
-          }
-        }
-      ],
-      "activation_count": 12,
-      "activations_made": [
-        {
-          "agent": "Crew Manager",
-          "tools": [],
-          "task": "Fetch new emails from the inbox (or a message queue), extract relevant text, and format data for further processing."
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [
-            {
-              "name": "Email Ingestion Tool",
-              "input": "",
-              "output": ""
-            }
-          ],
-          "thought": "I need to fetch new emails from the inbox in order to extract relevant text and format the data for further processing as specified in the criteria."
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [],
-          "final_answer": ""
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [],
-          "task": "Analyze each fetched email's tone and sentiment to determine urgency and required actions."
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [
-            {
-              "name": "Sentiment Analysis Tool",
-              "input": "",
-              "output": ""
-            }
-          ],
-          "thought": "I need to analyze the tone and sentiment of the provided emails to determine their urgency and classify the required actions."
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [],
-          "final_answer": ""
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [],
-          "task": "Query the knowledge base using the fetched emails to find relevant answers."
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [
-            {
-              "name": "FAQ Lookup Tool",
-              "input": "",
-              "output": ""
-            }
-          ],
-          "thought": "I need to query the knowledge base with the provided email IDs to find relevant answers and return them in a list mapped to each email's ID."
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [],
-          "final_answer": ""
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [],
-          "task": "Decide whether to escalate the response to a human operator based on the analysis."
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [
-            {
-              "name": "Escalation Decision Tool",
-              "input": "",
-              "output": ""
-            }
-          ],
-          "thought": "I need to analyze the provided email responses to determine if they should be escalated to a human operator. I will use the Escalation Decision Tool for this task."
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [],
-          "final_answer": ""
-        }
-      ]
-    },
-    {
-      "topic": "Report Generation",
-      "question": "Can you generate a weekly report of the top 10 research papers in NLP?",
-      "expected_answer": "**Report Summary:**  \n- **Inquiries Escalated:** None  \n- **Context for Human Agents:**  \n  1. Email ID: 123 - Response: \"Please allow 3-5 business days for your order to arrive.\"  \n  2. Email ID: 124 - Response: \"Your subscription will renew on the 15th of next month.\"  \n\nIf you need further assistance or additional details, please let me know!",
-      "expected_agent_calls": "",
-      "latency": "11889.38 ms",
-      "Latencia": "",
-      "qtd_de_ativacoes": "",
-      "quais_ativacoes_foram_feitas": "",
-      "qtd_de_tokens": "",
-      "estimativa_de_custo": "",
-      "expected_activations": [
-        {
-          "agent_name": "paper_crawler_agent",
-          "tool_result": {
-            "papers": [
-              {
-                "id": "A123",
-                "title": "Advancements in Neural Networks",
-                "source": "ArXiv",
-                "url": "https://arxiv.org/abs/1234.56789"
-              },
-              {
-                "id": "B456",
-                "title": "Quantum Computing: A New Era",
-                "source": "Google Scholar",
-                "url": "https://scholar.google.com/scholar?q=Quantum+Computing"
-              }
-            ]
-          }
-        },
-        {
-          "agent_name": "text_extraction_agent",
-          "tool_result": {
-            "extracted_text": [
-              {
-                "paper_id": "A123",
-                "text": "Neural networks have significantly improved over the last decade..."
-              },
-              {
-                "paper_id": "B456",
-                "text": "Quantum computing leverages principles of superposition and entanglement..."
-              }
-            ]
-          }
-        },
-        {
-          "agent_name": "summarization_agent",
-          "tool_result": {
-            "summaries": [
-              {
-                "paper_id": "A123",
-                "summary": "This paper discusses recent advancements in neural networks, highlighting key breakthroughs."
-              },
-              {
-                "paper_id": "B456",
-                "summary": "An overview of quantum computing, explaining fundamental principles and future implications."
-              }
-            ]
-          }
-        },
-        {
-          "agent_name": "topic_classifier_agent",
-          "tool_result": {
-            "classification": [
-              {
-                "paper_id": "A123",
-                "topics": [
-                  "Artificial Intelligence",
-                  "Deep Learning"
-                ]
-              },
-              {
-                "paper_id": "B456",
-                "topics": [
-                  "Quantum Computing",
-                  "Theoretical Physics"
-                ]
-              }
-            ]
-          }
-        },
-        {
-          "agent_name": "report_generator_agent",
-          "tool_result": {
-            "report": {
-              "title": "Weekly Research Highlights",
-              "entries": [
-                {
-                  "paper_id": "A123",
-                  "title": "Advancements in Neural Networks",
-                  "summary": "This paper discusses recent advancements in neural networks, highlighting key breakthroughs.",
-                  "topics": [
-                    "Artificial Intelligence",
-                    "Deep Learning"
-                  ]
-                },
-                {
-                  "paper_id": "B456",
-                  "title": "Quantum Computing: A New Era",
-                  "summary": "An overview of quantum computing, explaining fundamental principles and future implications.",
-                  "topics": [
-                    "Quantum Computing",
-                    "Theoretical Physics"
-                  ]
-                }
-              ]
-            }
-          }
-        }
-      ],
-      "activation_count": 12,
-      "activations_made": [
-        {
-          "agent": "Crew Manager",
-          "tools": [],
-          "task": "Fetch new emails from the inbox (or a message queue), extract relevant text, and format data for further processing."
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [
-            {
-              "name": "Email Ingestion Tool",
-              "input": "",
-              "output": ""
-            }
-          ],
-          "thought": "I need to fetch new emails from the specified inbox source to extract relevant text and format the data for further processing as required."
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [],
-          "final_answer": ""
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [],
-          "task": "Analyze each fetched email's tone and sentiment to determine urgency and required actions."
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [
-            {
-              "name": "Sentiment Analysis Tool",
-              "input": "",
-              "output": ""
-            }
-          ],
-          "thought": "I need to analyze the tone and sentiment of the provided emails to determine their urgency and required actions."
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [],
-          "final_answer": ""
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [],
-          "task": "Query the knowledge base using the fetched emails to find relevant answers."
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [
-            {
-              "name": "FAQ Lookup Tool",
-              "input": "",
-              "output": ""
-            }
-          ],
-          "thought": "I need to query the knowledge base using the provided email IDs to find relevant answers and ensure the final answer adheres to the expected criteria."
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [],
-          "final_answer": ""
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [],
-          "task": "Decide whether to escalate the response to a human operator based on the analysis."
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [
-            {
-              "name": "Escalation Decision Tool",
-              "input": "",
-              "output": ""
-            }
-          ],
-          "thought": "I need to analyze the emails to determine if any responses should be escalated to a human operator."
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [],
-          "final_answer": ""
-        }
-      ]
-    },
-    {
-      "topic": "Process Flow",
-      "question": "How does your system process a new research paper from discovery to report generation?",
-      "expected_answer": "The process flow for handling user inquiries includes the following steps:\n\n1. **Order Inquiry:** For order-related questions, users are informed that they should allow 3-5 business days for their order to arrive.\n   - **Email ID:** 123\n   - **Response:** \"Please allow 3-5 business days for your order to arrive.\"\n\n2. **Subscription Inquiry:** For subscription-related questions, users are notified of the renewal date.\n   - **Email ID:** 124\n   - **Response:** \"Your subscription will renew on the 15th of next month.\"\n\nNo escalation is needed for these inquiries.",
-      "expected_agent_calls": "",
-      "latency": "9583.92 ms",
-      "Latencia": "",
-      "qtd_de_ativacoes": "",
-      "quais_ativacoes_foram_feitas": "",
-      "qtd_de_tokens": "",
-      "estimativa_de_custo": "",
-      "expected_activations": [
-        {
-          "agent_name": "paper_crawler_agent",
-          "tool_result": {
-            "papers": [
-              {
-                "id": "A123",
-                "title": "Advancements in Neural Networks",
-                "source": "ArXiv",
-                "url": "https://arxiv.org/abs/1234.56789"
-              },
-              {
-                "id": "B456",
-                "title": "Quantum Computing: A New Era",
-                "source": "Google Scholar",
-                "url": "https://scholar.google.com/scholar?q=Quantum+Computing"
-              }
-            ]
-          }
-        },
-        {
-          "agent_name": "text_extraction_agent",
-          "tool_result": {
-            "extracted_text": [
-              {
-                "paper_id": "A123",
-                "text": "Neural networks have significantly improved over the last decade..."
-              },
-              {
-                "paper_id": "B456",
-                "text": "Quantum computing leverages principles of superposition and entanglement..."
-              }
-            ]
-          }
-        },
-        {
-          "agent_name": "summarization_agent",
-          "tool_result": {
-            "summaries": [
-              {
-                "paper_id": "A123",
-                "summary": "This paper discusses recent advancements in neural networks, highlighting key breakthroughs."
-              },
-              {
-                "paper_id": "B456",
-                "summary": "An overview of quantum computing, explaining fundamental principles and future implications."
-              }
-            ]
-          }
-        },
-        {
-          "agent_name": "topic_classifier_agent",
-          "tool_result": {
-            "classification": [
-              {
-                "paper_id": "A123",
-                "topics": [
-                  "Artificial Intelligence",
-                  "Deep Learning"
-                ]
-              },
-              {
-                "paper_id": "B456",
-                "topics": [
-                  "Quantum Computing",
-                  "Theoretical Physics"
-                ]
-              }
-            ]
-          }
-        },
-        {
-          "agent_name": "report_generator_agent",
-          "tool_result": {
-            "report": {
-              "title": "Weekly Research Highlights",
-              "entries": [
-                {
-                  "paper_id": "A123",
-                  "title": "Advancements in Neural Networks",
-                  "summary": "This paper discusses recent advancements in neural networks, highlighting key breakthroughs.",
-                  "topics": [
-                    "Artificial Intelligence",
-                    "Deep Learning"
-                  ]
-                },
-                {
-                  "paper_id": "B456",
-                  "title": "Quantum Computing: A New Era",
-                  "summary": "An overview of quantum computing, explaining fundamental principles and future implications.",
-                  "topics": [
-                    "Quantum Computing",
-                    "Theoretical Physics"
-                  ]
-                }
-              ]
-            }
-          }
-        }
-      ],
-      "activation_count": 12,
-      "activations_made": [
-        {
-          "agent": "Crew Manager",
-          "tools": [],
-          "task": "Fetch new emails from the inbox (or a message queue), extract relevant text, and format data for further processing."
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [
-            {
-              "name": "Email Ingestion Tool",
-              "input": "",
-              "output": ""
-            }
-          ],
-          "thought": "I need to start by fetching new emails from the inbox to gather the relevant information. Once I have the emails, I can extract the subject and body content and format them for further processing."
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [],
-          "final_answer": ""
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [],
-          "task": "Analyze each fetched email's tone and sentiment to determine urgency and required actions."
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [
-            {
-              "name": "Sentiment Analysis Tool",
-              "input": "",
-              "output": ""
-            }
-          ],
-          "thought": "I need to analyze the tone and sentiment of the provided emails to determine their urgency and required actions. I have the emails ready for analysis, so I'll proceed with that task."
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [],
-          "final_answer": ""
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [],
-          "task": "Query the knowledge base using the fetched emails to find relevant answers."
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [
-            {
-              "name": "FAQ Lookup Tool",
-              "input": "",
-              "output": ""
-            }
-          ],
-          "thought": "I need to query the knowledge base using the provided email IDs to find relevant answers that match each email ID."
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [],
-          "final_answer": ""
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [],
-          "task": "Decide whether to escalate the response to a human operator based on the analysis."
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [
-            {
-              "name": "Escalation Decision Tool",
-              "input": "",
-              "output": ""
-            }
-          ],
-          "thought": "I need to analyze the emails to decide whether to escalate the responses to a human operator. This will help determine which inquiries should be handled by a human agent."
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [],
-          "final_answer": ""
-        }
-      ]
-    },
-    {
-      "topic": "Error Handling",
-      "question": "I tried extracting text from a PDF, but it returned gibberish. What should I do?",
-      "expected_answer": "To effectively handle errors in customer communications, it's important to ensure that responses are clear and informative. In the provided context:\n\n1. For Email ID 123, the response regarding order delivery is straightforward, advising the customer to expect their order within 3-5 business days.\n2. For Email ID 124, the subscription renewal date is clearly stated, which helps manage customer expectations.\n\nNo inquiries were escalated, indicating that the responses were satisfactory and addressed the customers' needs appropriately. Always ensure that responses are timely and provide the necessary information to prevent confusion.",
-      "expected_agent_calls": "",
-      "latency": "8141.28 ms",
-      "Latencia": "",
-      "qtd_de_ativacoes": "",
-      "quais_ativacoes_foram_feitas": "",
-      "qtd_de_tokens": "",
-      "estimativa_de_custo": "",
-      "expected_activations": [
-        {
-          "agent_name": "text_extraction_agent",
-          "tool_result": {
-            "extracted_text": [
-              {
-                "paper_id": "A123",
-                "text": "Neural networks have significantly improved over the last decade..."
-              },
-              {
-                "paper_id": "B456",
-                "text": "Quantum computing leverages principles of superposition and entanglement..."
-              }
-            ]
-          }
-        },
-        {
-          "agent_name": "summarization_agent",
-          "tool_result": {
-            "summaries": [
-              {
-                "paper_id": "A123",
-                "summary": "This paper discusses recent advancements in neural networks, highlighting key breakthroughs."
-              },
-              {
-                "paper_id": "B456",
-                "summary": "An overview of quantum computing, explaining fundamental principles and future implications."
-              }
-            ]
-          }
-        },
-        {
-          "agent_name": "report_generator_agent",
-          "tool_result": {
-            "report": {
-              "title": "Weekly Research Highlights",
-              "entries": [
-                {
-                  "paper_id": "A123",
-                  "title": "Advancements in Neural Networks",
-                  "summary": "This paper discusses recent advancements in neural networks, highlighting key breakthroughs.",
-                  "topics": [
-                    "Artificial Intelligence",
-                    "Deep Learning"
-                  ]
-                },
-                {
-                  "paper_id": "B456",
-                  "title": "Quantum Computing: A New Era",
-                  "summary": "An overview of quantum computing, explaining fundamental principles and future implications.",
-                  "topics": [
-                    "Quantum Computing",
-                    "Theoretical Physics"
-                  ]
-                }
-              ]
-            }
-          }
-        }
-      ],
-      "activation_count": 12,
-      "activations_made": [
-        {
-          "agent": "Crew Manager",
-          "tools": [],
-          "task": "Fetch new emails from the inbox (or a message queue), extract relevant text, and format data for further processing."
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [
-            {
-              "name": "Email Ingestion Tool",
-              "input": "",
-              "output": ""
-            }
-          ],
-          "thought": "I need to fetch the new emails from the inbox to extract relevant text and format it accordingly for further processing."
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [],
-          "final_answer": ""
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [],
-          "task": "Analyze each fetched email's tone and sentiment to determine urgency and required actions."
-        },
-        {
-          "agent": "Crew Manager",
-          "tools": [
-            {
-              "name": "Sentiment Analysis Tool",
+              "name": "Topic Classifier Tool",
               "input": "",
               "output": ""
             }
@@ -1130,18 +254,91 @@
         {
           "agent": "Crew Manager",
           "tools": [],
-          "task": "Query the knowledge base using the fetched emails to find relevant answers."
+          "task": "Compiles the generated summaries and classified topics into a structured report."
+        },
+        {
+          "agent": "Compiles the summaries into a structured report or newsletter.",
+          "tools": [],
+          "task": "Compile the generated summaries and classified topics into a structured report summarizing recent research highlights."
+        },
+        {
+          "agent": "Compiles the summaries into a structured report or newsletter.",
+          "tools": [
+            {
+              "name": "Report Generator Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Compiles the summaries into a structured report or newsletter.",
+          "tools": [],
+          "final_answer": ""
         },
         {
           "agent": "Crew Manager",
           "tools": [
             {
-              "name": "FAQ Lookup Tool",
+              "name": "Delegate work to coworker",
               "input": "",
               "output": ""
             }
           ],
-          "thought": "I need to query the knowledge base with the provided email IDs to find relevant answers for each."
+          "thought": "I need to compile the summaries and classified topics into a structured report, which involves gathering all the related information and formatting it accordingly."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        }
+      ]
+    },
+    {
+      "topic": "Text Extraction",
+      "question": "I have a research paper in PDF format, but the text is not selectable. Can you extract the content for me?",
+      "expected_answer": "**Text Extraction from Research Highlights Report**\n\n1. **Artificial Intelligence**  \n   - **Deep Learning Innovations (Paper ID: AI-001):**  \n     - Focuses on advancements in deep learning.  \n     - Applications in image and speech recognition.  \n   - **Reinforcement Learning Techniques (Paper ID: AI-002):**  \n     - Comprehensive study on reinforcement learning.  \n     - Impacts on algorithm efficiency.  \n\n2. **Quantum Computing**  \n   - **Quantum Algorithms Overview (Paper ID: QC-001):**  \n     - Overview of quantum algorithms.  \n     - Potential for solving complex computational problems.  \n   - **Interplay of Quantum Computing and Physics (Paper ID: QC-002):**  \n     - Highlights interconnections between quantum computing and classical physics theories.",
+      "expected_agent_calls": "",
+      "latency": "25715.15 ms",
+      "Latencia": "",
+      "qtd_de_ativacoes": "",
+      "quais_ativacoes_foram_feitas": "",
+      "qtd_de_tokens": "",
+      "estimativa_de_custo": "",
+      "expected_activations": [
+        {
+          "agent_name": "text_extraction_agent",
+          "tool_result": {
+            "extracted_text": [
+              {
+                "paper_id": "A123",
+                "text": "Neural networks have significantly improved over the last decade..."
+              },
+              {
+                "paper_id": "B456",
+                "text": "Quantum computing leverages principles of superposition and entanglement..."
+              }
+            ]
+          }
+        }
+      ],
+      "activation_count": 23,
+      "activations_made": [
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Periodically crawls academic websites for new research papers based on specified topics."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Paper Crawler Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to gather new research papers based on specified topics in order to create a structured list that meets the specified criteria."
         },
         {
           "agent": "Crew Manager",
@@ -1151,18 +348,1949 @@
         {
           "agent": "Crew Manager",
           "tools": [],
-          "task": "Decide whether to escalate the response to a human operator based on the analysis."
+          "task": "Extracts and cleans the text content from the provided research paper documents."
         },
         {
           "agent": "Crew Manager",
           "tools": [
             {
-              "name": "Escalation Decision Tool",
+              "name": "Text Extraction Tool",
               "input": "",
               "output": ""
             }
           ],
-          "thought": "I need to analyze the email responses to decide whether they require escalation to a human operator."
+          "thought": "I need to extract and clean the text content from two provided research paper documents. To do this, I will utilize the Text Extraction Tool for both papers using their respective URLs."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Text Extraction Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Generates summaries of the cleaned text for the extracted research papers."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Summarization Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to generate concise summaries for the provided research papers. I can use the Summarization Tool to summarize each research paper's text."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Summarization Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Summarization Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Classifies the papers into relevant subject areas based on the extracted text."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Topic Classifier Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to classify the papers into relevant subject areas based on the provided summaries. I will start by classifying the text of each paper using the Topic Classifier Tool."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Topic Classifier Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Compiles the generated summaries and classified topics into a structured report."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Delegate work to coworker",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to compile the generated summaries and classified topics into a structured report that meets the criteria of providing a formatted report summarizing recent research highlights."
+        },
+        {
+          "agent": "Compiles the summaries into a structured report or newsletter.",
+          "tools": [],
+          "task": "Can you compile the generated summaries and classified topics into a structured report?"
+        },
+        {
+          "agent": "Compiles the summaries into a structured report or newsletter.",
+          "tools": [
+            {
+              "name": "Report Generator Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to compile and organize the summaries related to Artificial Intelligence and Quantum Computing into a structured report."
+        },
+        {
+          "agent": "Compiles the summaries into a structured report or newsletter.",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Ask question to coworker",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "Thought: I need to ask the specific coworker to complete the task of compiling the summaries into a structured report."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        }
+      ]
+    },
+    {
+      "topic": "Summarization",
+      "question": "Can you summarize this 30-page research paper for me?",
+      "expected_answer": "### Summary of Recent Research Highlights\n\n1. **Advancements in Neural Networks**  \n   - **Topics**: Artificial Intelligence, Deep Learning  \n   - **Overview**: This research focuses on the latest innovations in neural network architectures and training methodologies, showcasing significant improvements in performance metrics and their applicability across various domains, thereby enhancing the capabilities of AI systems.\n\n2. **Quantum Computing: A New Era**  \n   - **Topics**: Quantum Computing, Computer Science, Physics  \n   - **Overview**: This publication delves into the transformative implications of quantum computing technology, explaining the fundamental principles of quantum mechanics in computational processes and discussing its potential impact on both computer science and physical sciences, marking a new era of computational advancements.",
+      "expected_agent_calls": "",
+      "latency": "58066.69 ms",
+      "Latencia": "",
+      "qtd_de_ativacoes": "",
+      "quais_ativacoes_foram_feitas": "",
+      "qtd_de_tokens": "",
+      "estimativa_de_custo": "",
+      "expected_activations": [
+        {
+          "agent_name": "paper_crawler_agent",
+          "tool_result": {
+            "papers": [
+              {
+                "id": "A123",
+                "title": "Advancements in Neural Networks",
+                "source": "ArXiv",
+                "url": "https://arxiv.org/abs/1234.56789"
+              },
+              {
+                "id": "B456",
+                "title": "Quantum Computing: A New Era",
+                "source": "Google Scholar",
+                "url": "https://scholar.google.com/scholar?q=Quantum+Computing"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "text_extraction_agent",
+          "tool_result": {
+            "extracted_text": [
+              {
+                "paper_id": "A123",
+                "text": "Neural networks have significantly improved over the last decade..."
+              },
+              {
+                "paper_id": "B456",
+                "text": "Quantum computing leverages principles of superposition and entanglement..."
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "summarization_agent",
+          "tool_result": {
+            "summaries": [
+              {
+                "paper_id": "A123",
+                "summary": "This paper discusses recent advancements in neural networks, highlighting key breakthroughs."
+              },
+              {
+                "paper_id": "B456",
+                "summary": "An overview of quantum computing, explaining fundamental principles and future implications."
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "report_generator_agent",
+          "tool_result": {
+            "report": {
+              "title": "Weekly Research Highlights",
+              "entries": [
+                {
+                  "paper_id": "A123",
+                  "title": "Advancements in Neural Networks",
+                  "summary": "This paper discusses recent advancements in neural networks, highlighting key breakthroughs.",
+                  "topics": [
+                    "Artificial Intelligence",
+                    "Deep Learning"
+                  ]
+                },
+                {
+                  "paper_id": "B456",
+                  "title": "Quantum Computing: A New Era",
+                  "summary": "An overview of quantum computing, explaining fundamental principles and future implications.",
+                  "topics": [
+                    "Quantum Computing",
+                    "Theoretical Physics"
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "activation_count": 53,
+      "activations_made": [
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Periodically crawls academic websites for new research papers based on specified topics."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Paper Crawler Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to gather new research papers from academic websites based on specific topics. I will start by identifying the keywords I'll use to filter the research papers for the crawler."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Extracts and cleans the text content from the provided research paper documents."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Text Extraction Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to extract and clean the text content from two research papers using the provided URLs. I will start with the first paper."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Text Extraction Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Generates summaries of the cleaned text for the extracted research papers."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Delegate work to coworker",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to generate summaries of the cleaned text for the extracted research papers. Each paper's ID should correspond to its summary. I'll start by summarizing the content for each paper in the context provided."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Ask question to coworker",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Summarization Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to summarize the content for each paper. Since I am facing issues with delegation and questions, I will directly summarize the content based on the provided information."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Summarization Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Summarization Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Ask question to coworker",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Summarization Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Summarization Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Classifies the papers into relevant subject areas based on the extracted text."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Topic Classifier Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to classify the provided papers into relevant subject areas based on their summaries. Each paper has a unique ID and its corresponding extracted text. I will start by classifying the first paper."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Topic Classifier Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "Thought: I need to classify both papers into relevant subject areas based on their summaries. I will start by classifying the first paper \"Advancements in Neural Networks.\""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Topic Classifier Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "Thought: Now that I have classified the first paper \"Advancements in Neural Networks\" under the topics \"Artificial Intelligence\" and \"Deep Learning,\" I will proceed to classify the second paper \"Quantum Computing: A New Era.\""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Topic Classifier Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "Thought: I have mistakenly used the Topic Classifier Tool incorrectly. I need to classify the second paper \"Quantum Computing: A New Era\" to ensure I have the correct subjects for both papers."
+        },
+        {
+          "agent": "Classifies the paper by subject area or domain.",
+          "tools": [],
+          "task": "Classify the paper by subject area based on the summary provided."
+        },
+        {
+          "agent": "Classifies the paper by subject area or domain.",
+          "tools": [
+            {
+              "name": "Topic Classifier Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to classify the paper properly based on the title and extracted text provided."
+        },
+        {
+          "agent": "Classifies the paper by subject area or domain.",
+          "tools": [
+            {
+              "name": "Topic Classifier Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Classifies the paper by subject area or domain.",
+          "tools": [
+            {
+              "name": "Topic Classifier Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Classifies the paper by subject area or domain.",
+          "tools": [
+            {
+              "name": "Topic Classifier Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Classifies the paper by subject area or domain.",
+          "tools": [
+            {
+              "name": "Topic Classifier Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Classifies the paper by subject area or domain.",
+          "tools": [
+            {
+              "name": "Topic Classifier Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Classifies the paper by subject area or domain.",
+          "tools": [
+            {
+              "name": "Topic Classifier Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Classifies the paper by subject area or domain.",
+          "tools": [
+            {
+              "name": "Topic Classifier Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Classifies the paper by subject area or domain.",
+          "tools": [
+            {
+              "name": "Topic Classifier Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Classifies the paper by subject area or domain.",
+          "tools": [
+            {
+              "name": "Topic Classifier Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Classifies the paper by subject area or domain.",
+          "tools": [
+            {
+              "name": "Topic Classifier Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Classifies the paper by subject area or domain.",
+          "tools": [
+            {
+              "name": "Topic Classifier Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Classifies the paper by subject area or domain.",
+          "tools": [
+            {
+              "name": "Topic Classifier Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Classifies the paper by subject area or domain.",
+          "tools": [
+            {
+              "name": "Topic Classifier Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Classifies the paper by subject area or domain.",
+          "tools": [
+            {
+              "name": "Topic Classifier Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Classifies the paper by subject area or domain.",
+          "tools": [
+            {
+              "name": "Topic Classifier Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Classifies the paper by subject area or domain.",
+          "tools": [
+            {
+              "name": "Topic Classifier Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Classifies the paper by subject area or domain.",
+          "tools": [
+            {
+              "name": "Topic Classifier Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Classifies the paper by subject area or domain.",
+          "tools": [
+            {
+              "name": "Topic Classifier Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Classifies the paper by subject area or domain.",
+          "tools": [
+            {
+              "name": "Topic Classifier Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Classifies the paper by subject area or domain.",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Delegate work to coworker",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "Thought: Since I made an error in the classification attempt, I will delegate the task of classifying the second paper \"Quantum Computing: A New Era\" to a coworker who specializes in this area."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Compiles the generated summaries and classified topics into a structured report."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Delegate work to coworker",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to compile the provided summaries and classified topics into a structured report. I will delegate this task to the appropriate coworker who can compile the summaries effectively."
+        },
+        {
+          "agent": "Compiles the summaries into a structured report or newsletter.",
+          "tools": [],
+          "task": "Compile the generated summaries and classified topics into a structured report that summarizes recent research highlights."
+        },
+        {
+          "agent": "Compiles the summaries into a structured report or newsletter.",
+          "tools": [
+            {
+              "name": "Report Generator Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to compile the provided summaries and classified topics into a structured report that highlights the recent research findings clearly."
+        },
+        {
+          "agent": "Compiles the summaries into a structured report or newsletter.",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Delegate work to coworker",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        }
+      ]
+    },
+    {
+      "topic": "Topic Classification",
+      "question": "What category does this paper on reinforcement learning belong to?",
+      "expected_answer": "### Topic Classification Report\n\n#### Topic: Artificial Intelligence\n- **Subtopic: Deep Learning**  \n  1. **Paper ID: AI001**: Recent advancements in Deep Learning models improving image recognition accuracy.  \n  2. **Paper ID: AI002**: New techniques in neural network training that reduce computation time significantly.\n\n#### Topic: Quantum Computing\n- **Subtopic: Quantum Algorithms**  \n  1. **Paper ID: QC001**: Breakthrough in quantum algorithms that enhance computing speed for complex problems.  \n  2. **Paper ID: QC002**: Innovative applications of quantum entanglement in secure communication systems.",
+      "expected_agent_calls": "",
+      "latency": "28566.14 ms",
+      "Latencia": "",
+      "qtd_de_ativacoes": "",
+      "quais_ativacoes_foram_feitas": "",
+      "qtd_de_tokens": "",
+      "estimativa_de_custo": "",
+      "expected_activations": [
+        {
+          "agent_name": "topic_classifier_agent",
+          "tool_result": {
+            "classification": [
+              {
+                "paper_id": "A123",
+                "topics": [
+                  "Artificial Intelligence",
+                  "Deep Learning"
+                ]
+              },
+              {
+                "paper_id": "B456",
+                "topics": [
+                  "Quantum Computing",
+                  "Theoretical Physics"
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "activation_count": 22,
+      "activations_made": [
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Periodically crawls academic websites for new research papers based on specified topics."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Paper Crawler Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to gather new research papers based on specified topics to meet the task's expectations. Since I can only use the available tools, the best course of action is to utilize the Paper Crawler Tool to find relevant papers."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Extracts and cleans the text content from the provided research paper documents."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Text Extraction Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to extract and clean the text content from two research papers provided in the context. I will use the Text Extraction Tool to gather the text from each paper based on their URLs."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Text Extraction Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Generates summaries of the cleaned text for the extracted research papers."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Delegate work to coworker",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to generate concise summaries of the provided research papers based on the context given. To achieve this, I will delegate the task of summarization to a coworker who specializes in this area."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Summarization Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "Thought: I need to generate summaries of the provided research papers, but it seems my previous attempt to delegate could not be executed correctly since I cannot identify the coworker. Instead, I will directly utilize the Summarization Tool to summarize the given papers."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Classifies the papers into relevant subject areas based on the extracted text."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Topic Classifier Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to classify the given papers into their relevant subject areas based on the descriptions provided. I will start by using the Topic Classifier Tool to classify each paper."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Topic Classifier Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Topic Classifier Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Compiles the generated summaries and classified topics into a structured report."
+        },
+        {
+          "agent": "Compiles the summaries into a structured report or newsletter.",
+          "tools": [],
+          "task": "Compile the generated summaries and classified topics into a structured report summarizing recent research highlights."
+        },
+        {
+          "agent": "Compiles the summaries into a structured report or newsletter.",
+          "tools": [
+            {
+              "name": "Report Generator Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to compile the summaries from the 'Artificial Intelligence' and 'Quantum Computing' topics into a structured and organized report."
+        },
+        {
+          "agent": "Compiles the summaries into a structured report or newsletter.",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Delegate work to coworker",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to compile the generated summaries and classified topics into a structured report. I will initiate the process by delegating the task to the appropriate coworker who will compile the summaries into a structured report while ensuring it meets the formatting and content requirements."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        }
+      ]
+    },
+    {
+      "topic": "Report Generation",
+      "question": "Can you generate a weekly report of the top 10 research papers in NLP?",
+      "expected_answer": "# Recent Research Highlights Report\n\n## Paper ID: 1234.56789\n- **Topics:** Artificial Intelligence, Deep Learning  \n  This paper discusses the advancements and applications of artificial intelligence, particularly focusing on deep learning methods.\n\n## Paper ID: Quantum Computing\n- **Topics:** Quantum Computing, Information Technology  \n  This paper explores the impact of quantum computing on information technology and examines the potential future developments in this field.",
+      "expected_agent_calls": "",
+      "latency": "30510.62 ms",
+      "Latencia": "",
+      "qtd_de_ativacoes": "",
+      "quais_ativacoes_foram_feitas": "",
+      "qtd_de_tokens": "",
+      "estimativa_de_custo": "",
+      "expected_activations": [
+        {
+          "agent_name": "paper_crawler_agent",
+          "tool_result": {
+            "papers": [
+              {
+                "id": "A123",
+                "title": "Advancements in Neural Networks",
+                "source": "ArXiv",
+                "url": "https://arxiv.org/abs/1234.56789"
+              },
+              {
+                "id": "B456",
+                "title": "Quantum Computing: A New Era",
+                "source": "Google Scholar",
+                "url": "https://scholar.google.com/scholar?q=Quantum+Computing"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "text_extraction_agent",
+          "tool_result": {
+            "extracted_text": [
+              {
+                "paper_id": "A123",
+                "text": "Neural networks have significantly improved over the last decade..."
+              },
+              {
+                "paper_id": "B456",
+                "text": "Quantum computing leverages principles of superposition and entanglement..."
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "summarization_agent",
+          "tool_result": {
+            "summaries": [
+              {
+                "paper_id": "A123",
+                "summary": "This paper discusses recent advancements in neural networks, highlighting key breakthroughs."
+              },
+              {
+                "paper_id": "B456",
+                "summary": "An overview of quantum computing, explaining fundamental principles and future implications."
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "topic_classifier_agent",
+          "tool_result": {
+            "classification": [
+              {
+                "paper_id": "A123",
+                "topics": [
+                  "Artificial Intelligence",
+                  "Deep Learning"
+                ]
+              },
+              {
+                "paper_id": "B456",
+                "topics": [
+                  "Quantum Computing",
+                  "Theoretical Physics"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "report_generator_agent",
+          "tool_result": {
+            "report": {
+              "title": "Weekly Research Highlights",
+              "entries": [
+                {
+                  "paper_id": "A123",
+                  "title": "Advancements in Neural Networks",
+                  "summary": "This paper discusses recent advancements in neural networks, highlighting key breakthroughs.",
+                  "topics": [
+                    "Artificial Intelligence",
+                    "Deep Learning"
+                  ]
+                },
+                {
+                  "paper_id": "B456",
+                  "title": "Quantum Computing: A New Era",
+                  "summary": "An overview of quantum computing, explaining fundamental principles and future implications.",
+                  "topics": [
+                    "Quantum Computing",
+                    "Theoretical Physics"
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "activation_count": 27,
+      "activations_made": [
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Periodically crawls academic websites for new research papers based on specified topics."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Ask question to coworker",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to gather the necessary keywords related to the specific topics we want to focus on for the research papers. Once I have the keywords, I can use the Paper Crawler Tool to find relevant papers."
+        },
+        {
+          "agent": "Periodically crawls academic websites and APIs (e.g., ArXiv, Google Scholar) for new papers.",
+          "tools": [],
+          "task": "Periodically crawl academic websites for new research papers based on specified topics."
+        },
+        {
+          "agent": "Periodically crawls academic websites and APIs (e.g., ArXiv, Google Scholar) for new papers.",
+          "tools": [
+            {
+              "name": "Paper Crawler Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Periodically crawls academic websites and APIs (e.g., ArXiv, Google Scholar) for new papers.",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Delegate work to coworker",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "Thought: The specified coworker is not identified, and I need to delegate the task of crawling for research papers. I will provide context for the task and delegate the work effectively."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Extracts and cleans the text content from the provided research paper documents."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Text Extraction Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to extract and clean the text content from the provided research paper documents by utilizing the URLs given. I'll start by using the Text Extraction Tool for the first paper."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Text Extraction Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "Next, I will extract the text from the second paper using its URL."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Generates summaries of the cleaned text for the extracted research papers."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Summarization Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to generate summaries for each research paper's extracted text as outlined in the context. I will use the Summarization Tool for this task to ensure I meet the expected criteria."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Summarization Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Summarization Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Classifies the papers into relevant subject areas based on the extracted text."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Topic Classifier Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to classify the provided texts into relevant research topics based on the summaries given for each paper."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Topic Classifier Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "Thought: I need to classify the first paper's text into relevant research topics using the Topic Classifier Tool. I will start with the first paper's summary."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Topic Classifier Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "Thought: Now I will classify the second paper's text into relevant research topics using the Topic Classifier Tool."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Compiles the generated summaries and classified topics into a structured report."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Delegate work to coworker",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to compile the summaries and classified topics into a structured report based on the provided context. I will delegate this task to a coworker who compiles summaries."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Delegate work to coworker",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "Thought: It seems I need to specify the exact role of my coworker correctly. The task requires compiling and generating a structured report based on the summaries I've gathered. I'll reiterate the role properly this time."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Delegate work to coworker",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "Thought: I need to double-check the role name format to ensure it matches the expected name exactly. I will use the term for \"Compiles the summaries into a structured report\" properly."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Report Generator Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "Thought: Since I cannot successfully delegate the task due to issues with the coworker name, I will directly use the Report Generator Tool to compile the summaries into the structured report myself."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        }
+      ]
+    },
+    {
+      "topic": "Process Flow",
+      "question": "How does your system process a new research paper from discovery to report generation?",
+      "expected_answer": "### Process Flow for Research Highlights Report\n\n1. **Introduction**  \n   - Overview of the report's focus on advancements in technology.\n\n2. **Artificial Intelligence and Deep Learning**  \n   - **Paper ID:** 1234.56789  \n   - Summary of recent advancements in AI and deep learning, highlighting improvements in natural language processing and image recognition applications.\n\n3. **Quantum Computing and Computer Science**  \n   - Discussion on the emergence of quantum computing as a pivotal area in computer science, emphasizing its potential to solve complex problems more efficiently than classical computing methods.\n\n4. **Conclusion**  \n   - Recap of the significance of these technological advancements and their implications for future research.",
+      "expected_agent_calls": "",
+      "latency": "23067.29 ms",
+      "Latencia": "",
+      "qtd_de_ativacoes": "",
+      "quais_ativacoes_foram_feitas": "",
+      "qtd_de_tokens": "",
+      "estimativa_de_custo": "",
+      "expected_activations": [
+        {
+          "agent_name": "paper_crawler_agent",
+          "tool_result": {
+            "papers": [
+              {
+                "id": "A123",
+                "title": "Advancements in Neural Networks",
+                "source": "ArXiv",
+                "url": "https://arxiv.org/abs/1234.56789"
+              },
+              {
+                "id": "B456",
+                "title": "Quantum Computing: A New Era",
+                "source": "Google Scholar",
+                "url": "https://scholar.google.com/scholar?q=Quantum+Computing"
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "text_extraction_agent",
+          "tool_result": {
+            "extracted_text": [
+              {
+                "paper_id": "A123",
+                "text": "Neural networks have significantly improved over the last decade..."
+              },
+              {
+                "paper_id": "B456",
+                "text": "Quantum computing leverages principles of superposition and entanglement..."
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "summarization_agent",
+          "tool_result": {
+            "summaries": [
+              {
+                "paper_id": "A123",
+                "summary": "This paper discusses recent advancements in neural networks, highlighting key breakthroughs."
+              },
+              {
+                "paper_id": "B456",
+                "summary": "An overview of quantum computing, explaining fundamental principles and future implications."
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "topic_classifier_agent",
+          "tool_result": {
+            "classification": [
+              {
+                "paper_id": "A123",
+                "topics": [
+                  "Artificial Intelligence",
+                  "Deep Learning"
+                ]
+              },
+              {
+                "paper_id": "B456",
+                "topics": [
+                  "Quantum Computing",
+                  "Theoretical Physics"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "report_generator_agent",
+          "tool_result": {
+            "report": {
+              "title": "Weekly Research Highlights",
+              "entries": [
+                {
+                  "paper_id": "A123",
+                  "title": "Advancements in Neural Networks",
+                  "summary": "This paper discusses recent advancements in neural networks, highlighting key breakthroughs.",
+                  "topics": [
+                    "Artificial Intelligence",
+                    "Deep Learning"
+                  ]
+                },
+                {
+                  "paper_id": "B456",
+                  "title": "Quantum Computing: A New Era",
+                  "summary": "An overview of quantum computing, explaining fundamental principles and future implications.",
+                  "topics": [
+                    "Quantum Computing",
+                    "Theoretical Physics"
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "activation_count": 24,
+      "activations_made": [
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Periodically crawls academic websites for new research papers based on specified topics."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Paper Crawler Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to find new research papers based on specified topics, and then present them in a structured way including titles, sources, and URLs. To start this process, I will need to use the Paper Crawler Tool to search for recent papers."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Extracts and cleans the text content from the provided research paper documents."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Delegate work to coworker",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to extract and clean the text content from the provided research papers by retrieving the texts from the URLs provided."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Delegate work to coworker",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "Thought: I need to extract and clean the text content from the first research paper \"Advancements in Neural Networks.\" I will delegate this task to the coworker responsible for cleaning and extracting text."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Text Extraction Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "Thought: I must first extract the text of the first research paper \"Advancements in Neural Networks\" from its URL using the Text Extraction Tool."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Text Extraction Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "Thought: I've retrieved the text from the first research paper \"Advancements in Neural Networks.\" Now, I need to extract and clean the text content from the second research paper \"Quantum Computing: A New Era\" using the Text Extraction Tool."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Generates summaries of the cleaned text for the extracted research papers."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Delegate work to coworker",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to generate concise summaries for the extracted research papers. Since I can't do this myself and there's no designated coworker available, I will delegate the task of summarization to the appropriate coworker."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Summarization Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "Thought: I need to utilize the Summarization Tool to generate the summaries for the extracted research papers, as I have no designated coworker available to delegate the task to."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Classifies the papers into relevant subject areas based on the extracted text."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Topic Classifier Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to classify the papers into relevant subject areas based on the extracted text provided. Since the text needs to be classified, I will use the Topic Classifier Tool for each paper extracted text."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Topic Classifier Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Topic Classifier Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Compiles the generated summaries and classified topics into a structured report."
+        },
+        {
+          "agent": "Compiles the summaries into a structured report or newsletter.",
+          "tools": [],
+          "task": "Compile the generated summaries and classified topics into a structured report."
+        },
+        {
+          "agent": "Compiles the summaries into a structured report or newsletter.",
+          "tools": [
+            {
+              "name": "Report Generator Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I should compile the summaries related to the specified topics and format them into a structured report."
+        },
+        {
+          "agent": "Compiles the summaries into a structured report or newsletter.",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Delegate work to coworker",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to compile the generated summaries and classified topics into a structured report based on the provided research highlights and their corresponding topics. I will delegate this task to the coworker responsible for creating the report since I am not performing the task directly."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        }
+      ]
+    },
+    {
+      "topic": "Error Handling",
+      "question": "I tried extracting text from a PDF, but it returned gibberish. What should I do?",
+      "expected_answer": "### Error Handling in Recent Research\n\n1. **Artificial Intelligence and Deep Learning**  \n   - **Key Insight:** Error handling in AI systems is crucial for improving model reliability and performance. Recent advancements focus on developing robust algorithms that can identify and correct errors in real-time, enhancing decision-making processes in sectors like healthcare and finance.\n\n2. **Quantum Computing**  \n   - **Key Insight:** In quantum computing, error handling is essential due to the fragile nature of quantum states. Research is ongoing to create error correction codes that can maintain computational integrity, which is vital for practical applications in cryptography and optimization problems.\n\n### Conclusion  \nEffective error handling mechanisms are integral to the advancement of both AI and quantum computing, ensuring that systems can operate reliably in complex environments.",
+      "expected_agent_calls": "",
+      "latency": "59019.82 ms",
+      "Latencia": "",
+      "qtd_de_ativacoes": "",
+      "quais_ativacoes_foram_feitas": "",
+      "qtd_de_tokens": "",
+      "estimativa_de_custo": "",
+      "expected_activations": [
+        {
+          "agent_name": "text_extraction_agent",
+          "tool_result": {
+            "extracted_text": [
+              {
+                "paper_id": "A123",
+                "text": "Neural networks have significantly improved over the last decade..."
+              },
+              {
+                "paper_id": "B456",
+                "text": "Quantum computing leverages principles of superposition and entanglement..."
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "summarization_agent",
+          "tool_result": {
+            "summaries": [
+              {
+                "paper_id": "A123",
+                "summary": "This paper discusses recent advancements in neural networks, highlighting key breakthroughs."
+              },
+              {
+                "paper_id": "B456",
+                "summary": "An overview of quantum computing, explaining fundamental principles and future implications."
+              }
+            ]
+          }
+        },
+        {
+          "agent_name": "report_generator_agent",
+          "tool_result": {
+            "report": {
+              "title": "Weekly Research Highlights",
+              "entries": [
+                {
+                  "paper_id": "A123",
+                  "title": "Advancements in Neural Networks",
+                  "summary": "This paper discusses recent advancements in neural networks, highlighting key breakthroughs.",
+                  "topics": [
+                    "Artificial Intelligence",
+                    "Deep Learning"
+                  ]
+                },
+                {
+                  "paper_id": "B456",
+                  "title": "Quantum Computing: A New Era",
+                  "summary": "An overview of quantum computing, explaining fundamental principles and future implications.",
+                  "topics": [
+                    "Quantum Computing",
+                    "Theoretical Physics"
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "activation_count": 37,
+      "activations_made": [
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Periodically crawls academic websites for new research papers based on specified topics."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Paper Crawler Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to initiate a search for new research papers based on specified topics. To do this effectively, I'll use the Paper Crawler Tool to gather the relevant information."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Extracts and cleans the text content from the provided research paper documents."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Delegate work to coworker",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Text Extraction Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Text Extraction Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Text Extraction Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Delegate work to coworker",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Delegate work to coworker",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Text Extraction Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Text Extraction Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Text Extraction Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Text Extraction Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Text Extraction Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Generates summaries of the cleaned text for the extracted research papers."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Delegate work to coworker",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to generate concise summaries for the extracted texts of the provided research papers. The context specifies two papers with their corresponding extracted texts."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Ask question to coworker",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Summarization Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Summarization Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Classifies the papers into relevant subject areas based on the extracted text."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Delegate work to coworker",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to classify the papers into relevant subject areas based on the extracted text provided. Each paper has a unique identifier, and I will ensure to classify them properly."
+        },
+        {
+          "agent": "Classifies the paper by subject area or domain.",
+          "tools": [],
+          "task": "Classify the papers into relevant subject areas based on the extracted texts."
+        },
+        {
+          "agent": "Classifies the paper by subject area or domain.",
+          "tools": [
+            {
+              "name": "Topic Classifier Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to classify the two papers based on their titles and the provided text summaries."
+        },
+        {
+          "agent": "Classifies the paper by subject area or domain.",
+          "tools": [
+            {
+              "name": "Topic Classifier Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Classifies the paper by subject area or domain.",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Delegate work to coworker",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "It seems I have referenced an incorrect role for delegation. I will redo the delegation to the correct coworker, who classifies papers by subject area or domain."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Compiles the generated summaries and classified topics into a structured report."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Delegate work to coworker",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to compile the given summaries and classified topics into a structured report that summarizes the recent research highlights. I will delegate the work to my coworker who is responsible for compiling summaries into a structured report."
+        },
+        {
+          "agent": "Compiles the summaries into a structured report or newsletter.",
+          "tools": [],
+          "task": "Compile the generated summaries and classified topics into a structured report summarizing recent research highlights."
+        },
+        {
+          "agent": "Compiles the summaries into a structured report or newsletter.",
+          "tools": [
+            {
+              "name": "Report Generator Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I will compile the summaries related to the topics of Artificial Intelligence and Deep Learning, and Quantum Computing into a structured report."
+        },
+        {
+          "agent": "Compiles the summaries into a structured report or newsletter.",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Delegate work to coworker",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "Thought: I realize I misspoke about the coworker's role; I need to correctly mention the role of the coworker I'm delegating this task to."
         },
         {
           "agent": "Crew Manager",
@@ -1174,9 +2302,9 @@
     {
       "topic": "Scalability",
       "question": "Can your system handle thousands of research papers per day?",
-      "expected_answer": "**Summary of Inquiries:**\n\n1. **Email ID 123:** \"Please allow 3-5 business days for your order to arrive.\"\n2. **Email ID 124:** \"Your subscription will renew on the 15th of next month.\"\n\n**Conclusion:** No inquiries required escalation as all questions were addressed satisfactorily.",
+      "expected_answer": "**Scalability in Recent Research Highlights**\n\n1. **Artificial Intelligence and Deep Learning (Paper ID: 1234.56789)**  \n   - This paper emphasizes advancements in deep learning techniques, showcasing improved algorithms that significantly enhance the accuracy and efficiency of machine learning models. These improvements are crucial for scaling AI applications across various domains, allowing for better performance as data sizes and complexities increase.\n\n2. **Quantum Computing (Paper ID: Quantum Computing)**  \n   - The research discusses the potential of quantum computing to revolutionize computational power. It addresses both theoretical frameworks and practical implementations, suggesting that breakthroughs in this field could lead to scalable solutions that outperform classical computing methods, particularly in handling large datasets and complex algorithms.\n\n**Conclusion:**  \nBoth areas of research highlight significant advancements that contribute to scalability in technology, with AI improving model efficiency and quantum computing offering new paradigms for processing power.",
       "expected_agent_calls": "",
-      "latency": "10012.54 ms",
+      "latency": "28611.93 ms",
       "Latencia": "",
       "qtd_de_ativacoes": "",
       "quais_ativacoes_foram_feitas": "",
@@ -1282,23 +2410,34 @@
           }
         }
       ],
-      "activation_count": 12,
+      "activation_count": 26,
       "activations_made": [
         {
           "agent": "Crew Manager",
           "tools": [],
-          "task": "Fetch new emails from the inbox (or a message queue), extract relevant text, and format data for further processing."
+          "task": "Periodically crawls academic websites for new research papers based on specified topics."
         },
         {
           "agent": "Crew Manager",
           "tools": [
             {
-              "name": "Email Ingestion Tool",
+              "name": "Ask question to coworker",
               "input": "",
               "output": ""
             }
           ],
-          "thought": "I need to fetch new emails from the inbox to extract relevant text and format the data for further processing, as specified in the task."
+          "thought": "I need to gather the necessary research papers based on specified topics by crawling academic websites. I'll start by using the Paper Crawler Tool to fetch relevant academic papers. However, I need to clarify what specific topics or keywords I should focus on during the crawl."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Paper Crawler Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "Thought: Since I encountered an issue with identifying the coworker, I'll proceed by using a placeholder approach for defining the research topics, such as technology, healthcare, or artificial intelligence, to initiate the paper crawl. After that, I can adjust according to any feedback or direction."
         },
         {
           "agent": "Crew Manager",
@@ -1308,18 +2447,29 @@
         {
           "agent": "Crew Manager",
           "tools": [],
-          "task": "Analyze each fetched email's tone and sentiment to determine urgency and required actions."
+          "task": "Extracts and cleans the text content from the provided research paper documents."
         },
         {
           "agent": "Crew Manager",
           "tools": [
             {
-              "name": "Sentiment Analysis Tool",
+              "name": "Text Extraction Tool",
               "input": "",
               "output": ""
             }
           ],
-          "thought": "I need to analyze the tone and sentiment of the given emails to determine their urgency and required actions. This will help in classifying each email according to its sentiment."
+          "thought": "I need to extract and clean the text content from the provided research papers using the correct URLs. I will start with the first paper \"Advancements in Neural Networks\" using its URL."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Text Extraction Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "Next, I will proceed to extract and clean the text content from the second paper \"Quantum Computing: A New Era\" using its URL."
         },
         {
           "agent": "Crew Manager",
@@ -1329,18 +2479,38 @@
         {
           "agent": "Crew Manager",
           "tools": [],
-          "task": "Query the knowledge base using the fetched emails to find relevant answers."
+          "task": "Generates summaries of the cleaned text for the extracted research papers."
         },
         {
           "agent": "Crew Manager",
           "tools": [
             {
-              "name": "FAQ Lookup Tool",
+              "name": "Summarization Tool",
               "input": "",
               "output": ""
             }
           ],
-          "thought": "I need to query the knowledge base using the provided email IDs to find relevant answers for each ID."
+          "thought": "I need to generate summaries for each of the extracted research papers based on the provided content. I will use the Summarization Tool to summarize the extracted texts for each paper."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Summarization Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Summarization Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
         },
         {
           "agent": "Crew Manager",
@@ -1350,18 +2520,103 @@
         {
           "agent": "Crew Manager",
           "tools": [],
-          "task": "Decide whether to escalate the response to a human operator based on the analysis."
+          "task": "Classifies the papers into relevant subject areas based on the extracted text."
+        },
+        {
+          "agent": "Classifies the paper by subject area or domain.",
+          "tools": [],
+          "task": "Classify the provided papers into relevant subject areas based on their summaries."
+        },
+        {
+          "agent": "Classifies the paper by subject area or domain.",
+          "tools": [
+            {
+              "name": "Topic Classifier Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to classify the provided papers based on their summaries to ensure they are organized correctly."
+        },
+        {
+          "agent": "Classifies the paper by subject area or domain.",
+          "tools": [
+            {
+              "name": "Topic Classifier Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Classifies the paper by subject area or domain.",
+          "tools": [],
+          "final_answer": ""
         },
         {
           "agent": "Crew Manager",
           "tools": [
             {
-              "name": "Escalation Decision Tool",
+              "name": "Delegate work to coworker",
               "input": "",
               "output": ""
             }
           ],
-          "thought": "I need to analyze the provided email responses to determine if they should be escalated to a human operator based on the criteria set for escalation."
+          "thought": "I need to classify the provided papers into relevant subject areas based on their summaries. I will delegate this task to the appropriate tool for classification."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Compiles the generated summaries and classified topics into a structured report."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Delegate work to coworker",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to compile the provided summaries into a structured report according to the expected criteria for the final answer. This includes all the necessary details about the papers and their topics."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Delegate work to coworker",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "Thought: I need to correctly reference the coworker who can compile the summaries into a structured report. I will adjust my command to match the naming format."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Delegate work to coworker",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "Thought: It appears there is an issue with recognizing the coworker correctly. I will focus on using the correct phrasing to delegate the work."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Report Generator Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "Thought: Since delegating the task is not working due to coworker recognition issues, I will directly generate the report using the available summaries."
         },
         {
           "agent": "Crew Manager",
@@ -1373,9 +2628,9 @@
     {
       "topic": "Enhancements",
       "question": "How can I improve the accuracy of topic classification for my research papers?",
-      "expected_answer": "The enhancements made to the response system have proven effective, as all inquiries were addressed without the need for human escalation. For your reference:\n\n1. **Order Inquiry:** \"Please allow 3-5 business days for your order to arrive.\"\n2. **Subscription Inquiry:** \"Your subscription will renew on the 15th of next month.\" \n\nThese responses were clear and satisfactory.",
+      "expected_answer": "### Enhancements in Research: Summary of Recent Advancements\n\n#### Introduction\nThis report highlights significant enhancements in two pivotal research areas: Artificial Intelligence (AI) and Quantum Computing, both of which are poised to transform technology and society.\n\n#### Research Highlights\n\n**Artificial Intelligence**  \n- **Focus**: Deep Learning advancements.  \n- **Key Enhancements**:  \n  - Improved neural network architectures leading to superior performance in image and speech recognition tasks.  \n  - Breakthroughs in natural language processing, enabling AI systems to better understand and generate human language.\n\n**Quantum Computing**  \n- **Focus**: Innovations in Quantum Mechanics and Information Technology.  \n- **Key Enhancements**:  \n  - Increased computing speeds through quantum algorithms that outperform classical methods.  \n  - New encryption techniques based on quantum principles, enhancing security in data transmission.\n\n#### Conclusion\nThe advancements in AI and Quantum Computing reflect a trajectory of innovation that could significantly impact various sectors. Ongoing research and investment in these fields are expected to yield further transformative results.",
       "expected_agent_calls": "",
-      "latency": "8288.93 ms",
+      "latency": "24142.10 ms",
       "Latencia": "",
       "qtd_de_ativacoes": "",
       "quais_ativacoes_foram_feitas": "",
@@ -1481,23 +2736,23 @@
           }
         }
       ],
-      "activation_count": 12,
+      "activation_count": 25,
       "activations_made": [
         {
           "agent": "Crew Manager",
           "tools": [],
-          "task": "Fetch new emails from the inbox (or a message queue), extract relevant text, and format data for further processing."
+          "task": "Periodically crawls academic websites for new research papers based on specified topics."
         },
         {
           "agent": "Crew Manager",
           "tools": [
             {
-              "name": "Email Ingestion Tool",
+              "name": "Paper Crawler Tool",
               "input": "",
               "output": ""
             }
           ],
-          "thought": "I need to initiate the process of fetching new emails from the inbox to extract relevant text and format data accordingly."
+          "thought": "I need to gather new research papers based on specified topics by crawling academic websites. I will first define the search keywords to filter relevant papers."
         },
         {
           "agent": "Crew Manager",
@@ -1507,18 +2762,28 @@
         {
           "agent": "Crew Manager",
           "tools": [],
-          "task": "Analyze each fetched email's tone and sentiment to determine urgency and required actions."
+          "task": "Extracts and cleans the text content from the provided research paper documents."
         },
         {
           "agent": "Crew Manager",
           "tools": [
             {
-              "name": "Sentiment Analysis Tool",
+              "name": "Text Extraction Tool",
               "input": "",
               "output": ""
             }
           ],
-          "thought": "I need to analyze the tone and sentiment of each email to determine urgency and required actions."
+          "thought": "I need to extract and clean the text content from the two provided research papers. I'll use the Text Extraction Tool to obtain the text from each URL."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Text Extraction Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
         },
         {
           "agent": "Crew Manager",
@@ -1528,18 +2793,28 @@
         {
           "agent": "Crew Manager",
           "tools": [],
-          "task": "Query the knowledge base using the fetched emails to find relevant answers."
+          "task": "Generates summaries of the cleaned text for the extracted research papers."
         },
         {
           "agent": "Crew Manager",
           "tools": [
             {
-              "name": "FAQ Lookup Tool",
+              "name": "Summarization Tool",
               "input": "",
               "output": ""
             }
           ],
-          "thought": "I need to query the knowledge base using the provided email IDs to find relevant answers."
+          "thought": "I need to generate summaries for the extracted research papers identified by their IDs. To achieve this, I will utilize the Summarization Tool to create concise summaries from the provided text for each paper."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Summarization Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
         },
         {
           "agent": "Crew Manager",
@@ -1549,18 +2824,121 @@
         {
           "agent": "Crew Manager",
           "tools": [],
-          "task": "Decide whether to escalate the response to a human operator based on the analysis."
+          "task": "Classifies the papers into relevant subject areas based on the extracted text."
         },
         {
           "agent": "Crew Manager",
           "tools": [
             {
-              "name": "Escalation Decision Tool",
+              "name": "Topic Classifier Tool",
               "input": "",
               "output": ""
             }
           ],
-          "thought": "I need to analyze the responses from the emails provided to determine if they warrant escalation to a human operator."
+          "thought": "I need to classify the provided papers into relevant subject areas based on the extracted text. I will start by classifying each paper using the Topic Classifier Tool, beginning with the first paper."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Topic Classifier Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "Thought: I will begin by classifying the first paper \"1234.56789\" titled \"Advancements in Neural Networks\" using the Topic Classifier Tool. I need to make sure that I provide just the extracted text without any additional elements in the request."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Topic Classifier Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "Thought: I will now classify the second paper titled \"Quantum Computing\" using the Topic Classifier Tool."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Compiles the generated summaries and classified topics into a structured report."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Report Generator Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to compile the generated summaries and classified topics into a structured report based on the provided context. To do this, I will use the Report Generator Tool to create the report that summarizes recent research highlights."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Report Generator Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Ask question to coworker",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Delegate work to coworker",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Delegate work to coworker",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Delegate work to coworker",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Report Generator Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
         },
         {
           "agent": "Crew Manager",
@@ -1572,9 +2950,9 @@
     {
       "topic": "Customization",
       "question": "Can I configure the system to prioritize papers from specific journals or conferences?",
-      "expected_answer": "To customize your experience, please note the following:\n\n1. **Order Delivery:** You can expect your order to arrive within 3-5 business days.\n2. **Subscription Renewal:** Your subscription is set to renew on the 15th of next month.\n\nIf you have any specific customization requests or further questions, feel free to ask!",
+      "expected_answer": "### Customization in Recent Research Highlights\n\n#### 1. Advancements in Artificial Intelligence and Deep Learning (Paper ID 1234.56789)\n- **Key Focus:** This paper highlights significant advancements in artificial intelligence, particularly in deep learning methodologies. It covers breakthroughs in neural networks and their applications in various domains such as image recognition and natural language processing.\n\n#### 2. Quantum Computing and AI Synergy (Paper ID QuantumComputing)\n- **Key Focus:** This research explores the intersection of quantum computing and artificial intelligence, detailing how quantum algorithms can enhance machine learning processes. It discusses the potential implications of this synergy for future technologies, indicating a transformative impact on data processing and problem-solving capabilities.",
       "expected_agent_calls": "",
-      "latency": "9545.04 ms",
+      "latency": "31136.61 ms",
       "Latencia": "",
       "qtd_de_ativacoes": "",
       "quais_ativacoes_foram_feitas": "",
@@ -1680,23 +3058,23 @@
           }
         }
       ],
-      "activation_count": 12,
+      "activation_count": 29,
       "activations_made": [
         {
           "agent": "Crew Manager",
           "tools": [],
-          "task": "Fetch new emails from the inbox (or a message queue), extract relevant text, and format data for further processing."
+          "task": "Periodically crawls academic websites for new research papers based on specified topics."
         },
         {
           "agent": "Crew Manager",
           "tools": [
             {
-              "name": "Email Ingestion Tool",
+              "name": "Paper Crawler Tool",
               "input": "",
               "output": ""
             }
           ],
-          "thought": "I need to start by fetching new emails from the inbox to gather the relevant information necessary for processing. This will ensure that I have access to all the emails, which I can then format into a structured list according to the specified criteria."
+          "thought": "Thought: I need to gather the required information to find new research papers based on specified topics. To start, I will use the Paper Crawler Tool to search for relevant papers. I need to define the keywords that will best filter the relevant research papers."
         },
         {
           "agent": "Crew Manager",
@@ -1706,18 +3084,28 @@
         {
           "agent": "Crew Manager",
           "tools": [],
-          "task": "Analyze each fetched email's tone and sentiment to determine urgency and required actions."
+          "task": "Extracts and cleans the text content from the provided research paper documents."
         },
         {
           "agent": "Crew Manager",
           "tools": [
             {
-              "name": "Sentiment Analysis Tool",
+              "name": "Text Extraction Tool",
               "input": "",
               "output": ""
             }
           ],
-          "thought": "I need to analyze the tone and sentiment of the provided emails to determine their urgency and required actions. This will be done using the Sentiment Analysis Tool."
+          "thought": "I need to extract and clean the text content from two provided research papers using their URLs. I'll proceed by first extracting the text content from the paper titled \"Advancements in Neural Networks\" and then from \"Quantum Computing: A New Era\"."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Text Extraction Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
         },
         {
           "agent": "Crew Manager",
@@ -1727,18 +3115,38 @@
         {
           "agent": "Crew Manager",
           "tools": [],
-          "task": "Query the knowledge base using the fetched emails to find relevant answers."
+          "task": "Generates summaries of the cleaned text for the extracted research papers."
         },
         {
           "agent": "Crew Manager",
           "tools": [
             {
-              "name": "FAQ Lookup Tool",
+              "name": "Summarization Tool",
               "input": "",
               "output": ""
             }
           ],
-          "thought": "I need to query the knowledge base for the email IDs provided in order to find relevant answers specific to each email. The expected output is a list of responses that match each email ID."
+          "thought": "I need to generate summaries for the extracted text from the research papers based on the given criteria. I will utilize the Summarization Tool for each paper's content."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Summarization Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Summarization Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
         },
         {
           "agent": "Crew Manager",
@@ -1748,18 +3156,152 @@
         {
           "agent": "Crew Manager",
           "tools": [],
-          "task": "Decide whether to escalate the response to a human operator based on the analysis."
+          "task": "Classifies the papers into relevant subject areas based on the extracted text."
         },
         {
           "agent": "Crew Manager",
           "tools": [
             {
-              "name": "Escalation Decision Tool",
+              "name": "Topic Classifier Tool",
               "input": "",
               "output": ""
             }
           ],
-          "thought": "I need to evaluate the response to determine whether it should be escalated to a human operator based on the provided email analysis results."
+          "thought": "I need to classify the provided papers into relevant subject areas based on their extracted text. I will use the Topic Classifier Tool for both papers to obtain proper classifications."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Topic Classifier Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Topic Classifier Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Topic Classifier Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Delegate work to coworker",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Ask question to coworker",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Delegate work to coworker",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Topic Classifier Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Topic Classifier Tool",
+              "input": "",
+              "output": ""
+            }
+          ]
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "final_answer": ""
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [],
+          "task": "Compiles the generated summaries and classified topics into a structured report."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Delegate work to coworker",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "I need to compile the generated summaries and classified topics into a structured report that meets the expected criteria of containing a formatted report summarizing recent research highlights."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Delegate work to coworker",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "Thought: I need to correct the worker's designation to delegate the task properly."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Delegate work to coworker",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "Thought: I need to use the correct name for the coworker while delegating the task to compile the report."
+        },
+        {
+          "agent": "Crew Manager",
+          "tools": [
+            {
+              "name": "Report Generator Tool",
+              "input": "",
+              "output": ""
+            }
+          ],
+          "thought": "Thought: The most efficient way to fulfill the task is to generate a structured report using the provided summaries and classified topics directly."
         },
         {
           "agent": "Crew Manager",
